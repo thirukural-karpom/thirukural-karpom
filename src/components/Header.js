@@ -8,7 +8,7 @@ import { ButtonGroup, ToggleButton } from "react-bootstrap"
 
 const Header = () => {
   const { t, i18n } = useTranslation();
-  const [radioValue, setRadioValue] = useState('en');
+  const [radioValue, setRadioValue] = useState(i18n.language);
   const languages = [
     { name: "English", value: "en" },
     { name: "Tamil", value: "ta" }
