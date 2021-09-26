@@ -28,7 +28,7 @@ const Header = () => {
             key={idx}
             id={`radio-${idx}`}
             type="radio"
-            variant="secondary"
+            variant="primary"
             name="radio"
             value={radio.value}
             checked={radioValue === radio.value}
