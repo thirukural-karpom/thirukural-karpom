@@ -1,9 +1,12 @@
 {
-  "translations": {
+  "translation": {
     "Thirukural Karpom": "திருக்குறள் கற்போம்",
     "Kurals": "குறள்கள்",
     "Quiz": "வினாவிடை",
     "Find Explanation": "விளக்கத்தைக் கண்டுபிடிக்கவும்",
-    "Find Kural": "குறளை கண்டுபிடிக்கவும்"
+    "Find Kural": "குறளை கண்டுபிடிக்கவும்",
+    "Language": "மொழி",
+    "English": "ஆங்கிலம்",
+    "Tamil": "தமிழ்"
   }
 }

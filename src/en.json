@@ -1,9 +1,12 @@
 {
-  "translations": {
+  "translation": {
     "Thirukural Karpom": "Thirukural Karpom",
     "Kurals": "Kurals",
     "Quiz": "Quiz",
     "Find Explanation": "Find Explanation",
-    "Find Kural": "Find Kural"
+    "Find Kural": "Find Kural",
+    "Language": "Language",
+    "English": "English",
+    "Tamil": "Tamil"
   }
 }

@@ -12,14 +12,10 @@ i18n
     },
     lng: "en",
     fallbackLng: "en",
-    debug: false,
+    debug: true,
 
     interpolation: {
       escapeValue: false
-    },
-
-    react: {
-      wait: true
     }
   });
 
