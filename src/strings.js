@@ -4,7 +4,7 @@ const strings = {
     navBarBrowseTitle: "Browse",
     navBarQuizTitle: "Quiz",
     navBarQuizGuessExplanationTitle: "Guess Explanation",
-    navBarQuizGuesskuralTitle: "Guess Kural",
+    navBarQuizGuessKuralTitle: "Guess Kural",
   },
   tamil: {
     appName: "திருக்குறள் கற்போம்",
@@ -12,8 +12,6 @@ const strings = {
   }
 }
 
-function getString(id, language = "english") {
-  return strings[language][id]
-}
+const getString = (id, language = "english") => strings[language][id]
 
 export default getString
