@@ -1,12 +1,12 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
-import Browse from "./Browse"
+import Kurals from "./Kurals"
 
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path="/" component={Browse} />
-      <Route exact path="/browse" component={Browse} />
+      <Route exact path="/" component={Kurals} />
+      <Route exact path="/kurals" component={Kurals} />
     </Switch>
   </main>
 )
