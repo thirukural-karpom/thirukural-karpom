@@ -50,7 +50,7 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/kurals">{t("Kurals")}</Nav.Link>
-              <NavDropdown title={t("Quiz")}>
+              <NavDropdown menuVariant="dark" title={t("Quiz")}>
                 <NavDropdown.Item href="/quiz/findExplanation">{t("Find Explanation")}</NavDropdown.Item>
                 <NavDropdown.Item href="/quiz/findKural">{t("Find Kural")}</NavDropdown.Item>
               </NavDropdown>
