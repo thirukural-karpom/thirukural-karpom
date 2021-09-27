@@ -1,6 +1,6 @@
 [
   {
-    "aadhikaranNo": 1,
+    "aadhikaramNo": 1,
     "adhikaramName": "கடவுள் வாழ்த்து",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -187,7 +187,7 @@
     ]
   },
   {
-    "aadhikaranNo": 2,
+    "aadhikaramNo": 2,
     "adhikaramName": "வான்சிறப்பு",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -374,7 +374,7 @@
     ]
   },
   {
-    "aadhikaranNo": 3,
+    "aadhikaramNo": 3,
     "adhikaramName": "நீத்தார் பெருமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -561,7 +561,7 @@
     ]
   },
   {
-    "aadhikaranNo": 4,
+    "aadhikaramNo": 4,
     "adhikaramName": "அறன் வலியுறுத்தல்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -748,7 +748,7 @@
     ]
   },
   {
-    "aadhikaranNo": 5,
+    "aadhikaramNo": 5,
     "adhikaramName": "இல்வாழ்க்கை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -935,7 +935,7 @@
     ]
   },
   {
-    "aadhikaranNo": 6,
+    "aadhikaramNo": 6,
     "adhikaramName": "வாழ்க்கைத் துணைநலம்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -1122,7 +1122,7 @@
     ]
   },
   {
-    "aadhikaranNo": 7,
+    "aadhikaramNo": 7,
     "adhikaramName": "மக்கட்பேறு",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -1309,7 +1309,7 @@
     ]
   },
   {
-    "aadhikaranNo": 8,
+    "aadhikaramNo": 8,
     "adhikaramName": "அன்புடைமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -1496,7 +1496,7 @@
     ]
   },
   {
-    "aadhikaranNo": 9,
+    "aadhikaramNo": 9,
     "adhikaramName": "விருந்தோம்பல்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -1683,7 +1683,7 @@
     ]
   },
   {
-    "aadhikaranNo": 10,
+    "aadhikaramNo": 10,
     "adhikaramName": "இனியவை கூறல்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -1870,7 +1870,7 @@
     ]
   },
   {
-    "aadhikaranNo": 11,
+    "aadhikaramNo": 11,
     "adhikaramName": "செய்ந்நன்றியறிதல்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -2057,7 +2057,7 @@
     ]
   },
   {
-    "aadhikaranNo": 12,
+    "aadhikaramNo": 12,
     "adhikaramName": "நடுவு நிலைமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -2244,7 +2244,7 @@
     ]
   },
   {
-    "aadhikaranNo": 13,
+    "aadhikaramNo": 13,
     "adhikaramName": "அடக்கம் உடைமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -2431,7 +2431,7 @@
     ]
   },
   {
-    "aadhikaranNo": 14,
+    "aadhikaramNo": 14,
     "adhikaramName": "ஒழுக்கம் உடைமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -2618,7 +2618,7 @@
     ]
   },
   {
-    "aadhikaranNo": 15,
+    "aadhikaramNo": 15,
     "adhikaramName": "பிறனில் விழையாமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -2805,7 +2805,7 @@
     ]
   },
   {
-    "aadhikaranNo": 16,
+    "aadhikaramNo": 16,
     "adhikaramName": "பொறையுடைமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -2992,7 +2992,7 @@
     ]
   },
   {
-    "aadhikaranNo": 17,
+    "aadhikaramNo": 17,
     "adhikaramName": "அழுக்காறாமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -3179,7 +3179,7 @@
     ]
   },
   {
-    "aadhikaranNo": 18,
+    "aadhikaramNo": 18,
     "adhikaramName": "வெஃகாமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -3366,7 +3366,7 @@
     ]
   },
   {
-    "aadhikaranNo": 19,
+    "aadhikaramNo": 19,
     "adhikaramName": "புறங்கூறாமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -3553,7 +3553,7 @@
     ]
   },
   {
-    "aadhikaranNo": 20,
+    "aadhikaramNo": 20,
     "adhikaramName": "பயனில சொல்லாமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -3740,7 +3740,7 @@
     ]
   },
   {
-    "aadhikaranNo": 21,
+    "aadhikaramNo": 21,
     "adhikaramName": "தீவினையச்சம்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -3927,7 +3927,7 @@
     ]
   },
   {
-    "aadhikaranNo": 22,
+    "aadhikaramNo": 22,
     "adhikaramName": "ஒப்புரவறிதல்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -4114,7 +4114,7 @@
     ]
   },
   {
-    "aadhikaranNo": 23,
+    "aadhikaramNo": 23,
     "adhikaramName": "ஈ.கை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -4301,7 +4301,7 @@
     ]
   },
   {
-    "aadhikaranNo": 24,
+    "aadhikaramNo": 24,
     "adhikaramName": "புகழ்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -4488,7 +4488,7 @@
     ]
   },
   {
-    "aadhikaranNo": 25,
+    "aadhikaramNo": 25,
     "adhikaramName": "அருளுடைமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -4675,7 +4675,7 @@
     ]
   },
   {
-    "aadhikaranNo": 26,
+    "aadhikaramNo": 26,
     "adhikaramName": "புலால் மறுத்தல்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -4862,7 +4862,7 @@
     ]
   },
   {
-    "aadhikaranNo": 27,
+    "aadhikaramNo": 27,
     "adhikaramName": "தவம்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -5049,7 +5049,7 @@
     ]
   },
   {
-    "aadhikaranNo": 28,
+    "aadhikaramNo": 28,
     "adhikaramName": "கூடா ஒழுக்கம்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -5236,7 +5236,7 @@
     ]
   },
   {
-    "aadhikaranNo": 29,
+    "aadhikaramNo": 29,
     "adhikaramName": "கள்ளாமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -5423,7 +5423,7 @@
     ]
   },
   {
-    "aadhikaranNo": 30,
+    "aadhikaramNo": 30,
     "adhikaramName": "வாய்மை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -5610,7 +5610,7 @@
     ]
   },
   {
-    "aadhikaranNo": 31,
+    "aadhikaramNo": 31,
     "adhikaramName": "வெகுளாமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -5797,7 +5797,7 @@
     ]
   },
   {
-    "aadhikaranNo": 32,
+    "aadhikaramNo": 32,
     "adhikaramName": "இன்னா செய்யாமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -5984,7 +5984,7 @@
     ]
   },
   {
-    "aadhikaranNo": 33,
+    "aadhikaramNo": 33,
     "adhikaramName": "கொல்லாமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -6171,7 +6171,7 @@
     ]
   },
   {
-    "aadhikaranNo": 34,
+    "aadhikaramNo": 34,
     "adhikaramName": "நிலையாமை",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -6358,7 +6358,7 @@
     ]
   },
   {
-    "aadhikaranNo": 35,
+    "aadhikaramNo": 35,
     "adhikaramName": "துறவு",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -6545,7 +6545,7 @@
     ]
   },
   {
-    "aadhikaranNo": 36,
+    "aadhikaramNo": 36,
     "adhikaramName": "மெய்யுணர்தல்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -6732,7 +6732,7 @@
     ]
   },
   {
-    "aadhikaranNo": 37,
+    "aadhikaramNo": 37,
     "adhikaramName": "அவா அறுத்தல்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -6919,7 +6919,7 @@
     ]
   },
   {
-    "aadhikaranNo": 38,
+    "aadhikaramNo": 38,
     "adhikaramName": "ஊழ்",
     "paal": "அறத்துப்பால்",
     "kurals": [
@@ -7106,7 +7106,7 @@
     ]
   },
   {
-    "aadhikaranNo": 39,
+    "aadhikaramNo": 39,
     "adhikaramName": "இறைமாட்சி",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -7293,7 +7293,7 @@
     ]
   },
   {
-    "aadhikaranNo": 40,
+    "aadhikaramNo": 40,
     "adhikaramName": "கல்வி",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -7480,7 +7480,7 @@
     ]
   },
   {
-    "aadhikaranNo": 41,
+    "aadhikaramNo": 41,
     "adhikaramName": "கல்லாமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -7667,7 +7667,7 @@
     ]
   },
   {
-    "aadhikaranNo": 42,
+    "aadhikaramNo": 42,
     "adhikaramName": "கேள்வி",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -7854,7 +7854,7 @@
     ]
   },
   {
-    "aadhikaranNo": 43,
+    "aadhikaramNo": 43,
     "adhikaramName": "அறிவுடைமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -8041,8 +8041,8 @@
     ]
   },
   {
-    "aadhikaranNo": 44,
-    "adhikaramName": "அதிகாரம் 44- குற்றங்கடிதல்",
+    "aadhikaramNo": 44,
+    "adhikaramName": "குற்றங்கடிதல்",
     "paal": "பொருட்பால்",
     "kurals": [
       {
@@ -8228,7 +8228,7 @@
     ]
   },
   {
-    "aadhikaranNo": 45,
+    "aadhikaramNo": 45,
     "adhikaramName": "பெரியாரைத் துணைக்கோடல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -8415,7 +8415,7 @@
     ]
   },
   {
-    "aadhikaranNo": 46,
+    "aadhikaramNo": 46,
     "adhikaramName": "சிற்றினம் சேராமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -8602,7 +8602,7 @@
     ]
   },
   {
-    "aadhikaranNo": 47,
+    "aadhikaramNo": 47,
     "adhikaramName": "தெரிந்து செயல்வகை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -8789,7 +8789,7 @@
     ]
   },
   {
-    "aadhikaranNo": 48,
+    "aadhikaramNo": 48,
     "adhikaramName": "வலியறிதல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -8976,7 +8976,7 @@
     ]
   },
   {
-    "aadhikaranNo": 49,
+    "aadhikaramNo": 49,
     "adhikaramName": "காலமறிதல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -9163,7 +9163,7 @@
     ]
   },
   {
-    "aadhikaranNo": 50,
+    "aadhikaramNo": 50,
     "adhikaramName": "இடனறிதல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -9350,7 +9350,7 @@
     ]
   },
   {
-    "aadhikaranNo": 51,
+    "aadhikaramNo": 51,
     "adhikaramName": "தெரிந்து தெளிதல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -9537,7 +9537,7 @@
     ]
   },
   {
-    "aadhikaranNo": 52,
+    "aadhikaramNo": 52,
     "adhikaramName": "தெரிந்து வினையாடல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -9724,7 +9724,7 @@
     ]
   },
   {
-    "aadhikaranNo": 53,
+    "aadhikaramNo": 53,
     "adhikaramName": "சுற்றந் தழால்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -9911,7 +9911,7 @@
     ]
   },
   {
-    "aadhikaranNo": 54,
+    "aadhikaramNo": 54,
     "adhikaramName": "பொச்சாவாமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -10098,7 +10098,7 @@
     ]
   },
   {
-    "aadhikaranNo": 55,
+    "aadhikaramNo": 55,
     "adhikaramName": "செங்கோன்மை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -10285,7 +10285,7 @@
     ]
   },
   {
-    "aadhikaranNo": 56,
+    "aadhikaramNo": 56,
     "adhikaramName": "கொடுங்கோன்மை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -10472,7 +10472,7 @@
     ]
   },
   {
-    "aadhikaranNo": 57,
+    "aadhikaramNo": 57,
     "adhikaramName": "வெருவந்த செய்யாமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -10659,7 +10659,7 @@
     ]
   },
   {
-    "aadhikaranNo": 58,
+    "aadhikaramNo": 58,
     "adhikaramName": "கண்ணோட்டம்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -10846,7 +10846,7 @@
     ]
   },
   {
-    "aadhikaranNo": 59,
+    "aadhikaramNo": 59,
     "adhikaramName": "ஒற்றாடல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -11033,7 +11033,7 @@
     ]
   },
   {
-    "aadhikaranNo": 60,
+    "aadhikaramNo": 60,
     "adhikaramName": "ஊக்கம் உடைமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -11220,7 +11220,7 @@
     ]
   },
   {
-    "aadhikaranNo": 61,
+    "aadhikaramNo": 61,
     "adhikaramName": "மடி இன்மை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -11407,7 +11407,7 @@
     ]
   },
   {
-    "aadhikaranNo": 62,
+    "aadhikaramNo": 62,
     "adhikaramName": "ஆள்வினை உடைமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -11594,7 +11594,7 @@
     ]
   },
   {
-    "aadhikaranNo": 63,
+    "aadhikaramNo": 63,
     "adhikaramName": "இடுக்கண் அழியாமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -11781,7 +11781,7 @@
     ]
   },
   {
-    "aadhikaranNo": 64,
+    "aadhikaramNo": 64,
     "adhikaramName": "அமைச்சு",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -11968,7 +11968,7 @@
     ]
   },
   {
-    "aadhikaranNo": 65,
+    "aadhikaramNo": 65,
     "adhikaramName": "சொல்வன்மை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -12155,8 +12155,8 @@
     ]
   },
   {
-    "aadhikaranNo": 66,
-    "adhikaramName": "அதிகாரம் 66- வினைத் தூய்மை",
+    "aadhikaramNo": 66,
+    "adhikaramName": "வினைத் தூய்மை",
     "paal": "பொருட்பால்",
     "kurals": [
       {
@@ -12342,7 +12342,7 @@
     ]
   },
   {
-    "aadhikaranNo": 67,
+    "aadhikaramNo": 67,
     "adhikaramName": "வினைத்திட்பம்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -12529,7 +12529,7 @@
     ]
   },
   {
-    "aadhikaranNo": 68,
+    "aadhikaramNo": 68,
     "adhikaramName": "வினை செயல்வகை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -12716,7 +12716,7 @@
     ]
   },
   {
-    "aadhikaranNo": 69,
+    "aadhikaramNo": 69,
     "adhikaramName": "தூது",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -12903,7 +12903,7 @@
     ]
   },
   {
-    "aadhikaranNo": 70,
+    "aadhikaramNo": 70,
     "adhikaramName": "மன்னரைச் சேர்ந்து ஒழுகல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -13090,8 +13090,8 @@
     ]
   },
   {
-    "aadhikaranNo": 71,
-    "adhikaramName": "அதிகாரம் 71- குறிப்பறிதல்",
+    "aadhikaramNo": 71,
+    "adhikaramName": "குறிப்பறிதல்",
     "paal": "பொருட்பால்",
     "kurals": [
       {
@@ -13277,7 +13277,7 @@
     ]
   },
   {
-    "aadhikaranNo": 72,
+    "aadhikaramNo": 72,
     "adhikaramName": "அவை அறிதல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -13464,7 +13464,7 @@
     ]
   },
   {
-    "aadhikaranNo": 73,
+    "aadhikaramNo": 73,
     "adhikaramName": "அவை அஞ்சாமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -13651,7 +13651,7 @@
     ]
   },
   {
-    "aadhikaranNo": 74,
+    "aadhikaramNo": 74,
     "adhikaramName": "நாடு",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -13838,7 +13838,7 @@
     ]
   },
   {
-    "aadhikaranNo": 75,
+    "aadhikaramNo": 75,
     "adhikaramName": "அரண்்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -14025,8 +14025,8 @@
     ]
   },
   {
-    "aadhikaranNo": 76,
-    "adhikaramName": "அதிகாரம் 76- பொருள் செயல்வகை",
+    "aadhikaramNo": 76,
+    "adhikaramName": "பொருள் செயல்வகை",
     "paal": "பொருட்பால்",
     "kurals": [
       {
@@ -14212,7 +14212,7 @@
     ]
   },
   {
-    "aadhikaranNo": 77,
+    "aadhikaramNo": 77,
     "adhikaramName": "படை மாட்சி",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -14399,7 +14399,7 @@
     ]
   },
   {
-    "aadhikaranNo": 78,
+    "aadhikaramNo": 78,
     "adhikaramName": "படைச் செருக்கு",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -14586,7 +14586,7 @@
     ]
   },
   {
-    "aadhikaranNo": 79,
+    "aadhikaramNo": 79,
     "adhikaramName": "நட்பு",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -14773,7 +14773,7 @@
     ]
   },
   {
-    "aadhikaranNo": 80,
+    "aadhikaramNo": 80,
     "adhikaramName": "நட்பாராய்தல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -14960,8 +14960,8 @@
     ]
   },
   {
-    "aadhikaranNo": 81,
-    "adhikaramName": "அதிகாரம் 81- பழைமை",
+    "aadhikaramNo": 81,
+    "adhikaramName": "பழைமை",
     "paal": "பொருட்பால்",
     "kurals": [
       {
@@ -15147,7 +15147,7 @@
     ]
   },
   {
-    "aadhikaranNo": 82,
+    "aadhikaramNo": 82,
     "adhikaramName": "தீ நட்பு",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -15334,7 +15334,7 @@
     ]
   },
   {
-    "aadhikaranNo": 83,
+    "aadhikaramNo": 83,
     "adhikaramName": "கூடா நட்பு",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -15521,7 +15521,7 @@
     ]
   },
   {
-    "aadhikaranNo": 84,
+    "aadhikaramNo": 84,
     "adhikaramName": "பேதைமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -15708,7 +15708,7 @@
     ]
   },
   {
-    "aadhikaranNo": 85,
+    "aadhikaramNo": 85,
     "adhikaramName": "புல்லறிவாண்மை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -15895,8 +15895,8 @@
     ]
   },
   {
-    "aadhikaranNo": 86,
-    "adhikaramName": "அதிகாரம் 86- இகல்",
+    "aadhikaramNo": 86,
+    "adhikaramName": "இகல்",
     "paal": "பொருட்பால்",
     "kurals": [
       {
@@ -16082,7 +16082,7 @@
     ]
   },
   {
-    "aadhikaranNo": 87,
+    "aadhikaramNo": 87,
     "adhikaramName": "பகை மாட்சி",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -16269,7 +16269,7 @@
     ]
   },
   {
-    "aadhikaranNo": 88,
+    "aadhikaramNo": 88,
     "adhikaramName": "பகைத்திறம் தெரிதல்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -16456,7 +16456,7 @@
     ]
   },
   {
-    "aadhikaranNo": 89,
+    "aadhikaramNo": 89,
     "adhikaramName": "உட்பகை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -16643,7 +16643,7 @@
     ]
   },
   {
-    "aadhikaranNo": 90,
+    "aadhikaramNo": 90,
     "adhikaramName": "பெரியாரைப் பிழையாமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -16830,8 +16830,8 @@
     ]
   },
   {
-    "aadhikaranNo": 91,
-    "adhikaramName": "அதிகாரம் 91- பெண்வழிச் சேறல்",
+    "aadhikaramNo": 91,
+    "adhikaramName": "பெண்வழிச் சேறல்",
     "paal": "பொருட்பால்",
     "kurals": [
       {
@@ -17017,7 +17017,7 @@
     ]
   },
   {
-    "aadhikaranNo": 92,
+    "aadhikaramNo": 92,
     "adhikaramName": "வரைவின் மகளிர்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -17204,7 +17204,7 @@
     ]
   },
   {
-    "aadhikaranNo": 93,
+    "aadhikaramNo": 93,
     "adhikaramName": "கள்ளுண்ணாமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -17391,7 +17391,7 @@
     ]
   },
   {
-    "aadhikaranNo": 94,
+    "aadhikaramNo": 94,
     "adhikaramName": "சூது",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -17578,7 +17578,7 @@
     ]
   },
   {
-    "aadhikaranNo": 95,
+    "aadhikaramNo": 95,
     "adhikaramName": "மருந்து",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -17765,8 +17765,8 @@
     ]
   },
   {
-    "aadhikaranNo": 96,
-    "adhikaramName": "அதிகாரம் 96- குடிமை",
+    "aadhikaramNo": 96,
+    "adhikaramName": "குடிமை",
     "paal": "பொருட்பால்",
     "kurals": [
       {
@@ -17952,7 +17952,7 @@
     ]
   },
   {
-    "aadhikaranNo": 97,
+    "aadhikaramNo": 97,
     "adhikaramName": "மானம்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -18139,7 +18139,7 @@
     ]
   },
   {
-    "aadhikaranNo": 98,
+    "aadhikaramNo": 98,
     "adhikaramName": "பெருமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -18326,7 +18326,7 @@
     ]
   },
   {
-    "aadhikaranNo": 99,
+    "aadhikaramNo": 99,
     "adhikaramName": "சான்றாண்மை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -18513,7 +18513,7 @@
     ]
   },
   {
-    "aadhikaranNo": 100,
+    "aadhikaramNo": 100,
     "adhikaramName": "பண்புடைமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -18700,8 +18700,8 @@
     ]
   },
   {
-    "aadhikaranNo": 101,
-    "adhikaramName": "அதிகாரம் 101- நன்றியில் செல்வம்",
+    "aadhikaramNo": 101,
+    "adhikaramName": "நன்றியில் செல்வம்",
     "paal": "பொருட்பால்",
     "kurals": [
       {
@@ -18887,7 +18887,7 @@
     ]
   },
   {
-    "aadhikaranNo": 102,
+    "aadhikaramNo": 102,
     "adhikaramName": "நாணுடைமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -19074,7 +19074,7 @@
     ]
   },
   {
-    "aadhikaranNo": 103,
+    "aadhikaramNo": 103,
     "adhikaramName": "குடிசெயல் வகை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -19261,7 +19261,7 @@
     ]
   },
   {
-    "aadhikaranNo": 104,
+    "aadhikaramNo": 104,
     "adhikaramName": "உழவு",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -19448,7 +19448,7 @@
     ]
   },
   {
-    "aadhikaranNo": 105,
+    "aadhikaramNo": 105,
     "adhikaramName": "நல்குரவு",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -19635,8 +19635,8 @@
     ]
   },
   {
-    "aadhikaranNo": 106,
-    "adhikaramName": "அதிகாரம் 106- இரவு",
+    "aadhikaramNo": 106,
+    "adhikaramName": "இரவு",
     "paal": "பொருட்பால்",
     "kurals": [
       {
@@ -19822,7 +19822,7 @@
     ]
   },
   {
-    "aadhikaranNo": 107,
+    "aadhikaramNo": 107,
     "adhikaramName": "இரவச்சம்",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -20009,7 +20009,7 @@
     ]
   },
   {
-    "aadhikaranNo": 108,
+    "aadhikaramNo": 108,
     "adhikaramName": "கயமை",
     "paal": "பொருட்பால்",
     "kurals": [
@@ -20196,7 +20196,7 @@
     ]
   },
   {
-    "aadhikaranNo": 109,
+    "aadhikaramNo": 109,
     "adhikaramName": "தகை அணங்குறுத்தல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -20383,7 +20383,7 @@
     ]
   },
   {
-    "aadhikaranNo": 110,
+    "aadhikaramNo": 110,
     "adhikaramName": "குறிப்பறிதல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -20570,8 +20570,8 @@
     ]
   },
   {
-    "aadhikaranNo": 111,
-    "adhikaramName": "அதிகாரம் 111- புணர்ச்சி மகிழ்தல்",
+    "aadhikaramNo": 111,
+    "adhikaramName": "புணர்ச்சி மகிழ்தல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
       {
@@ -20757,7 +20757,7 @@
     ]
   },
   {
-    "aadhikaranNo": 112,
+    "aadhikaramNo": 112,
     "adhikaramName": "நலம் புனைந்து உரைத்தல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -20944,7 +20944,7 @@
     ]
   },
   {
-    "aadhikaranNo": 113,
+    "aadhikaramNo": 113,
     "adhikaramName": "காதற் சிறப்புரைத்தல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -21131,7 +21131,7 @@
     ]
   },
   {
-    "aadhikaranNo": 114,
+    "aadhikaramNo": 114,
     "adhikaramName": "நாணுத் துறவுரைத்தல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -21318,7 +21318,7 @@
     ]
   },
   {
-    "aadhikaranNo": 115,
+    "aadhikaramNo": 115,
     "adhikaramName": "அலர் அறிவுறுத்தல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -21505,8 +21505,8 @@
     ]
   },
   {
-    "aadhikaranNo": 116,
-    "adhikaramName": "அதிகாரம் 116- பிரிவு ஆற்றாமை",
+    "aadhikaramNo": 116,
+    "adhikaramName": "பிரிவு ஆற்றாமை",
     "paal": "காமத்துப்பால்",
     "kurals": [
       {
@@ -21692,7 +21692,7 @@
     ]
   },
   {
-    "aadhikaranNo": 117,
+    "aadhikaramNo": 117,
     "adhikaramName": "படர்மெலிந் திரங்கல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -21879,7 +21879,7 @@
     ]
   },
   {
-    "aadhikaranNo": 118,
+    "aadhikaramNo": 118,
     "adhikaramName": "கண் விதுப்பழிதல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -22066,7 +22066,7 @@
     ]
   },
   {
-    "aadhikaranNo": 119,
+    "aadhikaramNo": 119,
     "adhikaramName": "பசப்புறு பருவரல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -22253,7 +22253,7 @@
     ]
   },
   {
-    "aadhikaranNo": 120,
+    "aadhikaramNo": 120,
     "adhikaramName": "தனிப்படர் மிகுதி",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -22440,8 +22440,8 @@
     ]
   },
   {
-    "aadhikaranNo": 121,
-    "adhikaramName": "அதிகாரம் 121- நினைந்தவர் புலம்பல்",
+    "aadhikaramNo": 121,
+    "adhikaramName": "நினைந்தவர் புலம்பல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
       {
@@ -22627,7 +22627,7 @@
     ]
   },
   {
-    "aadhikaranNo": 122,
+    "aadhikaramNo": 122,
     "adhikaramName": "கனவுநிலை உரைத்தல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -22814,7 +22814,7 @@
     ]
   },
   {
-    "aadhikaranNo": 123,
+    "aadhikaramNo": 123,
     "adhikaramName": "பொழுதுகண்டு இரங்கல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -23001,7 +23001,7 @@
     ]
   },
   {
-    "aadhikaranNo": 124,
+    "aadhikaramNo": 124,
     "adhikaramName": "உறுப்புநலன் அழிதல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -23188,7 +23188,7 @@
     ]
   },
   {
-    "aadhikaranNo": 125,
+    "aadhikaramNo": 125,
     "adhikaramName": "நெஞ்சொடு கிளத்தல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -23375,8 +23375,8 @@
     ]
   },
   {
-    "aadhikaranNo": 126,
-    "adhikaramName": "அதிகாரம் 126- நிறையழிதல்",
+    "aadhikaramNo": 126,
+    "adhikaramName": "நிறையழிதல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
       {
@@ -23562,7 +23562,7 @@
     ]
   },
   {
-    "aadhikaranNo": 127,
+    "aadhikaramNo": 127,
     "adhikaramName": "அவர்வயின் விதும்பல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -23749,7 +23749,7 @@
     ]
   },
   {
-    "aadhikaranNo": 128,
+    "aadhikaramNo": 128,
     "adhikaramName": "குறிப்பறிவுறுத்தல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -23936,7 +23936,7 @@
     ]
   },
   {
-    "aadhikaranNo": 129,
+    "aadhikaramNo": 129,
     "adhikaramName": "புணர்ச்சி விதும்பல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -24123,7 +24123,7 @@
     ]
   },
   {
-    "aadhikaranNo": 130,
+    "aadhikaramNo": 130,
     "adhikaramName": "நெஞ்சொடு புலத்தல்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -24310,8 +24310,8 @@
     ]
   },
   {
-    "aadhikaranNo": 131,
-    "adhikaramName": "அதிகாரம் 131- புலவி",
+    "aadhikaramNo": 131,
+    "adhikaramName": "புலவி",
     "paal": "காமத்துப்பால்",
     "kurals": [
       {
@@ -24497,7 +24497,7 @@
     ]
   },
   {
-    "aadhikaranNo": 132,
+    "aadhikaramNo": 132,
     "adhikaramName": "புலவி நுணுக்கம்",
     "paal": "காமத்துப்பால்",
     "kurals": [
@@ -24684,7 +24684,7 @@
     ]
   },
   {
-    "aadhikaranNo": 133,
+    "aadhikaramNo": 133,
     "adhikaramName": "ஊடலுவகை",
     "paal": "காமத்துப்பால்",
     "kurals": [
