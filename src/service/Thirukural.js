@@ -9,4 +9,6 @@ const getAdhikarams = (paal) => {
   }, [])
 }
 
-export { getAdhikarams }
+const getKurals = (no) => thirukurals[no - 1].kurals
+
+export { getAdhikarams, getKurals }
