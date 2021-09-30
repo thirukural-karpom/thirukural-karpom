@@ -12,17 +12,21 @@ const Kurals = () => {
 
   useEffect(() => {
     if (selectedPaal.length !== 0) {
-      const adhikarams = getAdhikarams(selectedPaal[0])
+      const paal = selectedPaal[0]
+      console.log(`loading adhikarams for paal: ${paal}`)
+      const adhikarams = getAdhikarams(paal)
+      console.log(`adhikarams: ${adhikarams}`)
       setAdhikarams(adhikarams)
       setSelectedAdhikaram([adhikarams[0]])
     } else {
+      console.log("no selected paal")
       setAdhikarams([])
       setSelectedAdhikaram([])
     }
   }, [selectedPaal])
 
   const handleSubmit = (event) => {
-    console.log("Submit")
+    console.log("handle form submit")
     event.preventDefault();
   }
 
@@ -44,6 +48,7 @@ const Kurals = () => {
           <Typeahead
             id="adhikaram-selector"
             onChange={setSelectedAdhikaram}
+            labelKey={(option) => `${option.no} - ${option.name}`}
             options={adhikarams}
             placeholder={ADHIKARAM}
             selected={selectedAdhikaram}
