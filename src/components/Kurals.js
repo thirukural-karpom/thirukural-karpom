@@ -1,46 +1,62 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { PAAL, ADHIKARAM } from "../constants"
-import { DropdownButton, Dropdown, Container } from "react-bootstrap"
+import { Container, Col, Form, Button } from "react-bootstrap"
 import paals from "../data/paals.json"
 import { getAdhikarams } from "../service/Thirukural"
+import { Typeahead } from "react-bootstrap-typeahead"
 
 const Kurals = () => {
-  const [paalIdx, setPaalIdx] = useState(0)
-  const paal = paals[paalIdx]
-  const adhikarams = getAdhikarams(paal)
-  const [adhikaramIdx, setAdhikaramIdx] = useState(0)
-  const adhikaram = adhikarams[adhikaramIdx]
+  const [selectedPaal, setSelectedPaal] = useState([paals[0]]);
+  const [adhikarams, setAdhikarams] = useState([]);
+  const [selectedAdhikaram, setSelectedAdhikaram] = useState([])
+
+  useEffect(() => {
+    if (selectedPaal.length !== 0) {
+      const adhikarams = getAdhikarams(selectedPaal[0])
+      setAdhikarams(adhikarams)
+      setSelectedAdhikaram([adhikarams[0]])
+    } else {
+      setAdhikarams([])
+      setSelectedAdhikaram([])
+    }
+  }, [selectedPaal])
+
+  const handleSubmit = (event) => {
+    console.log("Submit")
+    event.preventDefault();
+  }
 
   return (
-    <div>
-      <Container>
-        <DropdownButton id="paal-selector" title={`${PAAL}: ${paal}`} variant="white">
-          {
-            paals.map((paal, idx) => (
-              <Dropdown.Item
-                as="button"
-                value={idx}
-                onClick={(e) => setPaalIdx(e.target.value)}
-              >
-                {paal}
-              </Dropdown.Item>))
-          }
-        </DropdownButton>
-
-        <DropdownButton id="adhikaram-selector" title={`${ADHIKARAM}: ${adhikaram}`} variant="white">
-          {
-            adhikarams.map((adhikaram, idx) => (
-              <Dropdown.Item
-                as="button"
-                value={idx}
-                onClick={(e) => setAdhikaramIdx(e.target.value)}
-              >
-                {adhikaram}
-              </Dropdown.Item>))
-          }
-        </DropdownButton>
-      </Container>
-    </div >
+    <Container onSubmit={handleSubmit}>
+      <Form className="row">
+        <Form.Group as={Col} md={5} className="mb-3">
+          <Form.Label>{PAAL}</Form.Label>
+          <Typeahead
+            id="paal-selector"
+            onChange={setSelectedPaal}
+            options={paals}
+            placeholder={PAAL}
+            selected={selectedPaal}
+          />
+        </Form.Group>
+        <Form.Group as={Col} md={5} className="mb-3">
+          <Form.Label>{ADHIKARAM}</Form.Label>
+          <Typeahead
+            id="adhikaram-selector"
+            onChange={setSelectedAdhikaram}
+            options={adhikarams}
+            placeholder={ADHIKARAM}
+            selected={selectedAdhikaram}
+          />
+        </Form.Group>
+        <Form.Group as={Col} md={1} className="mb-3">
+          <Form.Label>&nbsp;</Form.Label>
+          <Form.Control as={Button} type="submit">
+            Submit
+          </Form.Control>
+        </Form.Group>
+      </Form>
+    </Container>
   )
 }
 
