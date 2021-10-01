@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react"
-import { PAAL, ADHIKARAM, KURALS, KURAL } from "../constants"
-import { Container, Row, Col, Form, Button, Card, Tabs, Tab, Badge } from "react-bootstrap"
+import { Badge, Button, Card, Col, Container, Form, Row, Tab, Tabs } from "react-bootstrap"
+import { Typeahead } from "react-bootstrap-typeahead"
+import { ADHIKARAM, KURAL, PAAL } from "../constants"
 import paals from "../data/paals.json"
 import { getAdhikarams, getKurals } from "../service/Thirukural"
-import { Typeahead } from "react-bootstrap-typeahead"
-
 import "./Kurals.css"
+
 
 const Kurals = () => {
   const [selectedPaal, setSelectedPaal] = useState([paals[0]]);
   const [adhikarams, setAdhikarams] = useState([]);
   const [selectedAdhikaram, setSelectedAdhikaram] = useState([])
   const [kurals, setKurals] = useState([])
+  const [hasInteracted, setHasInteracted] = useState(false)
 
   useEffect(() => {
     if (selectedPaal.length !== 0) {
       const paal = selectedPaal[0]
-      console.log(`loading adhikarams for paal: ${paal}`)
+      console.log(`get adhikarams for paal: ${paal}`)
       const adhikarams = getAdhikarams(paal)
       console.log(`adhikarams: ${adhikarams}`)
       setAdhikarams(adhikarams)
@@ -28,6 +29,16 @@ const Kurals = () => {
     }
   }, [selectedPaal])
 
+  useEffect(() => {
+    if (selectedAdhikaram.length !== 0 && !hasInteracted) {
+      const adhikaram = selectedAdhikaram[0]
+      console.log(`get kurals for adhikaram: ${adhikaram}`)
+      const kurals = getKurals(adhikaram.no)
+      console.log(`kurals: ${JSON.stringify(kurals)}`)
+      setKurals(kurals)
+    }
+  }, [selectedAdhikaram, hasInteracted])
+
   const handleSubmit = (event) => {
     console.log("handle form submit")
     const adhikaram = selectedAdhikaram[0]
@@ -35,7 +46,21 @@ const Kurals = () => {
     const kurals = getKurals(adhikaram.no)
     console.log(`kurals: ${JSON.stringify(kurals)}`)
     setKurals(kurals)
+    console.log("user has interacted with submit button so setting hasInteracted to true")
+    setHasInteracted(true)
     event.preventDefault()
+  }
+
+  const handlePaalChange = (value) => {
+    setSelectedPaal(value)
+    console.log("user has interacted with paal selector so setting hasInteracted to true")
+    setHasInteracted(true)
+  }
+
+  const handleAdhikaramChange = (value) => {
+    setSelectedAdhikaram(value)
+    console.log("user has interacted with adhikaram selector so setting hasInteracted to true")
+    setHasInteracted(true)
   }
 
   const renderKurals = () => (
@@ -71,7 +96,7 @@ const Kurals = () => {
           <Form.Label>{PAAL}</Form.Label>
           <Typeahead
             id="paal-selector"
-            onChange={setSelectedPaal}
+            onChange={handlePaalChange}
             options={paals}
             placeholder={PAAL}
             selected={selectedPaal}
@@ -81,7 +106,7 @@ const Kurals = () => {
           <Form.Label>{ADHIKARAM}</Form.Label>
           <Typeahead
             id="adhikaram-selector"
-            onChange={setSelectedAdhikaram}
+            onChange={handleAdhikaramChange}
             labelKey={(option) => `${option.no} - ${option.name}`}
             options={adhikarams}
             placeholder={ADHIKARAM}
