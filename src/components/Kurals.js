@@ -91,7 +91,7 @@ const Kurals = () => {
 
   return (
     <Container onSubmit={handleSubmit}>
-      <Form className="row">
+      <Form className="row mt-2">
         <Form.Group as={Col} md={{ span: 4, offset: 1 }} className="mb-3">
           <Form.Label>{PAAL}</Form.Label>
           <Typeahead
@@ -122,6 +122,10 @@ const Kurals = () => {
       </Form>
 
       {renderKurals()}
+
+      <Row className="mb-5">
+        <Col>&nbsp;</Col>
+      </Row>
     </Container>
   )
 }
