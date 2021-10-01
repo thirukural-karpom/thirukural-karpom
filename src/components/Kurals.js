@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
-import { PAAL, ADHIKARAM } from "../constants"
+import { PAAL, ADHIKARAM, KURALS, KURAL } from "../constants"
 import { Container, Row, Col, Form, Button, Card, Tabs, Tab, Badge } from "react-bootstrap"
 import paals from "../data/paals.json"
 import { getAdhikarams, getKurals } from "../service/Thirukural"
 import { Typeahead } from "react-bootstrap-typeahead"
+
+import "./Kurals.css"
 
 const Kurals = () => {
   const [selectedPaal, setSelectedPaal] = useState([paals[0]]);
@@ -35,6 +37,32 @@ const Kurals = () => {
     setKurals(kurals)
     event.preventDefault()
   }
+
+  const renderKurals = () => (
+    kurals.map((k, idx) => (
+      <Row key={idx} className="my-3">
+        <Col md={{ span: 8, offset: 2 }}>
+          <Card border="secondary">
+            <Card.Body>
+              <Card.Title>
+                <Row>
+                  <Col className="kural" xs={9}>
+                    {k.kural}
+                  </Col>
+                  <Col xs={3} className="text-end">
+                    <Badge bg="primary">{`${KURAL} ${k.kuralNo}`}</Badge>
+                  </Col>
+                </Row>
+              </Card.Title>
+              <Tabs defaultActiveKey="0" className="my-3">
+                {k.explanations.map((e, idx) => (<Tab key={idx} eventKey={idx} title={e.author}>{e.explanation}</Tab>))}
+              </Tabs>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    ))
+  )
 
   return (
     <Container onSubmit={handleSubmit}>
@@ -68,35 +96,7 @@ const Kurals = () => {
         </Form.Group>
       </Form>
 
-      <Row className="mt-2">
-        <Col md={{ span: 8, offset: 2 }}>
-          <Card>
-            <Card.Body>
-              <Card.Title>
-                <Row>
-                  <Col xs={9}>
-                    ஒழுக்கத்து நீத்தார் பெருமை விழுப்பத்து <br />வேண்டும் பனுவல் துணிவு
-                  </Col>
-                  <Col xs={3} className="text-end">
-                    <Badge bg="secondary">குறள்: 1</Badge>
-                  </Col>
-                </Row>
-              </Card.Title>
-              <Tabs defaultActiveKey="0" className="my-3">
-                <Tab eventKey="0" title="மு.வரதராசன்">
-                  ஒழுக்கத்தில் நிலைத்து நின்று பற்று விட்டவர்களின் பெருமையைச் சிறந்ததாக போற்றி கூறுவதே நூல்களின் துணிவாகும்.
-                </Tab>
-                <Tab eventKey="1" title="சாலமன் பாப்பையா">
-                  தமக்குரிய ஒழுக்கத்தில் வாழ்ந்து, ஆசைகளை அறுத்து, உயர்ந்த மேன்மக்களின் பெருமையே, சிறந்தனவற்றுள் சிறந்தது என்று நூல்கள் சொல்கின்றன.
-                </Tab>
-                <Tab eventKey="2" title="மு.கருணாநிதி">
-                  ஒழுக்கத்தில் உறுதியான துறவிகளின் பெருமை, சான்றோர் நூலில் விருப்பமுடனும், உயர்வாகவும் இடம் பெறும்
-                </Tab>
-              </Tabs>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+      {renderKurals()}
     </Container>
   )
 }
