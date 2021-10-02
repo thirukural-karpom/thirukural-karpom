@@ -1,4 +1,4 @@
-import { Container, Row, Col, Navbar, NavbarBrand } from "react-bootstrap"
+import { Container, Navbar, NavbarBrand } from "react-bootstrap"
 
 const Footer = () => {
   return (

@@ -69,16 +69,16 @@ const Kurals = () => {
         <Col md={{ span: 8, offset: 2 }}>
           <Card border="secondary">
             <Card.Body>
-              <Card.Title>
-                <Row>
-                  <Col className="kural" xs={9}>
-                    {k.kural}
-                  </Col>
-                  <Col xs={3} className="text-end">
-                    <Badge bg="primary">{`${KURAL} ${k.kuralNo}`}</Badge>
-                  </Col>
-                </Row>
-              </Card.Title>
+              <Row className="fs-5">
+                <Col >
+                  <Badge bg="primary">{`${KURAL} ${k.kuralNo}`}</Badge>
+                </Col>
+              </Row>
+              <Row className="my-3">
+                <Col className="kural">
+                  {k.kural}
+                </Col>
+              </Row>
               <Tabs defaultActiveKey="0" className="my-3">
                 {k.explanations.map((e, idx) => (<Tab key={idx} eventKey={idx} title={e.author}>{e.explanation}</Tab>))}
               </Tabs>
