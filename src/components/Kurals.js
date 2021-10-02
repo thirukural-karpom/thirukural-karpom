@@ -67,7 +67,7 @@ const Kurals = () => {
     kurals.map((k, idx) => (
       <Row key={idx} className="my-3">
         <Col md={{ span: 8, offset: 2 }}>
-          <Card>
+          <Card className="shadow-sm">
             <Card.Body>
               <Row className="fs-5">
                 <Col >
