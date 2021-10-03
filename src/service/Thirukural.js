@@ -49,7 +49,7 @@ const getRandomKurals = (kuralNoToSkip, paaltoUse, n) => {
 }
 
 const getPaal = (kuralNo) => {
-  const found = thirukurals.find((item) => item.kurals.find((kural) => kural.kuralNo == kuralNo))
+  const found = thirukurals.find((item) => item.kurals.find((kural) => kural.kuralNo === kuralNo))
   return found.paal
 }
 
