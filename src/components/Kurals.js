@@ -4,8 +4,6 @@ import { Typeahead } from "react-bootstrap-typeahead"
 import { ADHIKARAM, KURAL, PAAL } from "../constants"
 import paals from "../data/paals.json"
 import { getAdhikarams, getKurals } from "../service/Thirukural"
-import "./Kurals.css"
-
 
 const Kurals = () => {
   const [selectedPaal, setSelectedPaal] = useState([paals[0]]);
@@ -135,7 +133,7 @@ const Kurals = () => {
 
       {renderKurals()}
 
-      <Row className="mb-5">
+      <Row className="mb-2">
         <Col>&nbsp;</Col>
       </Row>
     </Container>

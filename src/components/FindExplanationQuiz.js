@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { Button, Container, Form, Row, Col, Alert } from "react-bootstrap"
+import { Button, Container, Form, Row, Col, Alert, Card, Badge } from "react-bootstrap"
 import { getExplanations } from "../service/Quiz"
 import { getRandomKural } from "../service/Thirukural"
-import { CORRECT_EXPLANATION_MESSAGE, WRONG_EXPLANATION_MESSAGE } from "../constants"
+import { CORRECT_EXPLANATION_MESSAGE, WRONG_EXPLANATION_MESSAGE, KURAL } from "../constants"
 
 const FindExplanationQuiz = () => {
   const [kural, setKural] = useState(null)
@@ -44,47 +44,72 @@ const FindExplanationQuiz = () => {
     setSelectedExplanationIdx(null)
   }
 
-  return (
-    <Container>
-      <Row>
+  const renderKural = (kuralNo, kural) => (
+    <Form.Group>
+      <Row className="fs-5">
         <Col>
-          <Alert variant="success" show={showResult && isCorrectAnswer}>{CORRECT_EXPLANATION_MESSAGE}</Alert>
-          <Alert variant="danger" show={showResult && !isCorrectAnswer}>{WRONG_EXPLANATION_MESSAGE}</Alert>
+          <Badge bg="primary">{`${KURAL} ${kuralNo}`}</Badge>
         </Col>
       </Row>
-      <Row>
+      <Row className="my-3">
         <Col>
-          <Form onSubmit={handleOnSubmit}>
-            <Form.Group>
-              {
-                kural !== null ?
-                  <Form.Label className="kural">{`${kural.kuralNo}: ${kural.kural}`}</Form.Label>
-                  : <Form.Label className="kural"></Form.Label>
-              }
-            </Form.Group>
-            <Form.Group>
-              {
-                explanations.map((item, idx) => (
-                  <Form.Check
-                    key={idx}
-                    value={idx}
-                    name="explanations"
-                    type="radio"
-                    label={item.explanation}
-                    onChange={(e) => setSelectedExplanationIdx(e.target.value)}
-                    defaultChecked={idx === 0}
-                  />
-                ))
-              }
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-            <Button variant="primary" type="button" disabled={!isCorrectAnswer} onClick={handlNextQuiz}>
-              Next
-            </Button>
-          </Form>
+          <Form.Label className="kural">{kural}</Form.Label>
         </Col>
+      </Row>
+    </Form.Group>
+  )
+
+  return (
+    <Container>
+      <Row className="mt-3">
+        <Col>
+          <Card className="shadow-sm">
+            <Card.Body>
+              <Alert variant="success" show={showResult && isCorrectAnswer}>
+                {CORRECT_EXPLANATION_MESSAGE}
+              </Alert>
+              <Alert variant="danger" show={showResult && !isCorrectAnswer}>
+                {WRONG_EXPLANATION_MESSAGE}
+              </Alert>
+              <Form onSubmit={handleOnSubmit}>
+                {kural !== null ? renderKural(kural.kuralNo, kural.kural) : renderKural("", "")}
+                <Form.Group>
+                  {
+                    explanations.map((item, idx) => (
+                      <Form.Check
+                        key={idx}
+                        id={`explanation-option-${idx}`}
+                        value={idx}
+                        name="explanations"
+                        type="radio"
+                        label={item.explanation}
+                        onChange={(e) => setSelectedExplanationIdx(e.target.value)}
+                        defaultChecked={idx === 0}
+                      />
+                    ))
+                  }
+                </Form.Group>
+                <Form.Group className="text-center mt-4">
+                  <Button type="submit" className="mx-2">
+                    Submit
+                  </Button>
+                  <Button
+                    variant="success"
+                    type="button"
+                    disabled={!isCorrectAnswer}
+                    onClick={handlNextQuiz}
+                    className="mx-2">
+                    Next <i className="bi bi-arrow-right-short"></i>
+                  </Button>
+                </Form.Group>
+              </Form>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="mb-2">
+        <Col>&nbsp;</Col>
       </Row>
     </Container>
   )
