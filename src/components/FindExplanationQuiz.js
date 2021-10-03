@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Button, Container, Form, Row, Col, Alert } from "react-bootstrap"
 import { getExplanations } from "../service/Quiz"
 import { getRandomKural } from "../service/Thirukural"
+import { CORRECT_EXPLANATION_MESSAGE, WRONG_EXPLANATION_MESSAGE } from "../constants"
 
 const FindExplanationQuiz = () => {
   const [kural, setKural] = useState(null)
@@ -47,12 +48,8 @@ const FindExplanationQuiz = () => {
     <Container>
       <Row>
         <Col>
-          <Alert variant="success" show={showResult && isCorrectAnswer}>
-            Correct
-          </Alert>
-          <Alert variant="danger" show={showResult && !isCorrectAnswer}>
-            Wrong
-          </Alert>
+          <Alert variant="success" show={showResult && isCorrectAnswer}>{CORRECT_EXPLANATION_MESSAGE}</Alert>
+          <Alert variant="danger" show={showResult && !isCorrectAnswer}>{WRONG_EXPLANATION_MESSAGE}</Alert>
         </Col>
       </Row>
       <Row>
