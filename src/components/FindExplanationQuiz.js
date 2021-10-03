@@ -34,6 +34,15 @@ const FindExplanationQuiz = () => {
     e.preventDefault()
   }
 
+  const handlNextQuiz = (e) => {
+    console.log("handle next quiz")
+    setShowResult(false)
+    setIsCorrectAnswer(false)
+    setKural(null)
+    setExplanations([])
+    setSelectedExplanationIdx(null)
+  }
+
   return (
     <Container>
       <Row>
@@ -73,6 +82,9 @@ const FindExplanationQuiz = () => {
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
+            </Button>
+            <Button variant="primary" type="button" disabled={!isCorrectAnswer} onClick={handlNextQuiz}>
+              Next
             </Button>
           </Form>
         </Col>
