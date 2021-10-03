@@ -90,36 +90,48 @@ const Kurals = () => {
   )
 
   return (
-    <Container onSubmit={handleSubmit}>
-      <Form className="row mt-2">
-        <Form.Group as={Col} md={{ span: 4, offset: 1 }} className="mb-3">
-          <Form.Label>{PAAL}</Form.Label>
-          <Typeahead
-            id="paal-selector"
-            onChange={handlePaalChange}
-            options={paals}
-            placeholder={PAAL}
-            selected={selectedPaal}
-          />
-        </Form.Group>
-        <Form.Group as={Col} md={4} className="mb-3">
-          <Form.Label>{ADHIKARAM}</Form.Label>
-          <Typeahead
-            id="adhikaram-selector"
-            onChange={handleAdhikaramChange}
-            labelKey={(option) => `${option.no} - ${option.name}`}
-            options={adhikarams}
-            placeholder={ADHIKARAM}
-            selected={selectedAdhikaram}
-          />
-        </Form.Group>
-        <Form.Group as={Col} md={2} className="mb-3">
-          <Form.Label>&nbsp;</Form.Label>
-          <Form.Control as={Button} type="submit">
-            Submit
-          </Form.Control>
-        </Form.Group>
-      </Form>
+    <Container>
+      <Row className="my-3">
+        <Col>
+          <Form onSubmit={handleSubmit}>
+            <Row>
+              <Col md={{ span: 4, offset: 1 }}>
+                <Form.Group>
+                  <Form.Label>{PAAL}</Form.Label>
+                  <Typeahead
+                    id="paal-selector"
+                    onChange={handlePaalChange}
+                    options={paals}
+                    placeholder={PAAL}
+                    selected={selectedPaal}
+                  />
+                </Form.Group>
+              </Col>
+              <Col md={4}>
+                <Form.Group>
+                  <Form.Label>{ADHIKARAM}</Form.Label>
+                  <Typeahead
+                    id="adhikaram-selector"
+                    onChange={handleAdhikaramChange}
+                    labelKey={(option) => `${option.no} - ${option.name}`}
+                    options={adhikarams}
+                    placeholder={ADHIKARAM}
+                    selected={selectedAdhikaram}
+                  />
+                </Form.Group>
+              </Col>
+              <Col md={2}>
+                <Form.Group>
+                  <Form.Label>&nbsp;</Form.Label>
+                  <Form.Control as={Button} type="submit">
+                    Submit
+                  </Form.Control>
+                </Form.Group>
+              </Col>
+            </Row>
+          </Form>
+        </Col>
+      </Row>
 
       {renderKurals()}
 
