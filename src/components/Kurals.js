@@ -3,39 +3,32 @@ import { Badge, Button, Card, Col, Container, Form, Row, Tab, Tabs } from "react
 import { Typeahead } from "react-bootstrap-typeahead"
 import { ADHIKARAM, KURAL, PAAL } from "../constants"
 import paals from "../data/paals.json"
+import { isEmpty } from "../helpers"
 import { getAdhikarams, getKurals } from "../service/Thirukural"
 
 const Kurals = () => {
-  const [selectedPaal, setSelectedPaal] = useState([paals[0]]);
+  const [selectedPaal, setSelectedPaal] = useState(null);
   const [adhikarams, setAdhikarams] = useState([]);
-  const [selectedAdhikaram, setSelectedAdhikaram] = useState([])
+  const [selectedAdhikaram, setSelectedAdhikaram] = useState(null)
   const [kurals, setKurals] = useState([])
-  const [hasInteracted, setHasInteracted] = useState(false)
 
   useEffect(() => {
-    if (selectedPaal.length !== 0) {
-      const paal = selectedPaal[0]
-      console.log(`get adhikarams for paal: ${paal}`)
+    console.log(">>>>> side-effect - selectedPaal")
+    if (selectedPaal === null) {
+      const paal = paals[0]
       const adhikarams = getAdhikarams(paal)
-      console.log(`adhikarams: ${adhikarams}`)
-      setAdhikarams(adhikarams)
-      setSelectedAdhikaram([adhikarams[0]])
-    } else {
-      console.log("no selected paal")
-      setAdhikarams([])
-      setSelectedAdhikaram([])
-    }
-  }, [selectedPaal])
-
-  useEffect(() => {
-    if (selectedAdhikaram.length !== 0 && !hasInteracted) {
-      const adhikaram = selectedAdhikaram[0]
-      console.log(`get kurals for adhikaram: ${adhikaram}`)
+      console.log(`adhikarams for ${paal}: ${adhikarams}`)
+      const adhikaram = adhikarams[0]
       const kurals = getKurals(adhikaram.no)
-      console.log(`kurals: ${JSON.stringify(kurals)}`)
+      console.log(`kurals for ${adhikaram.no}-${adhikaram.name}: ${JSON.stringify(kurals)}`)
+
+      setSelectedPaal([paal])
+      setAdhikarams(adhikarams)
+      setSelectedAdhikaram([adhikaram])
       setKurals(kurals)
     }
-  }, [selectedAdhikaram, hasInteracted])
+    console.log("<<<<< side-effect - selectedPaal")
+  }, [selectedPaal])
 
   const handleSubmit = (event) => {
     console.log("handle form submit")
@@ -44,21 +37,19 @@ const Kurals = () => {
     const kurals = getKurals(adhikaram.no)
     console.log(`kurals: ${JSON.stringify(kurals)}`)
     setKurals(kurals)
-    console.log("user has interacted with submit button so setting hasInteracted to true")
-    setHasInteracted(true)
     event.preventDefault()
   }
 
-  const handlePaalChange = (value) => {
-    setSelectedPaal(value)
-    console.log("user has interacted with paal selector so setting hasInteracted to true")
-    setHasInteracted(true)
-  }
-
-  const handleAdhikaramChange = (value) => {
-    setSelectedAdhikaram(value)
-    console.log("user has interacted with adhikaram selector so setting hasInteracted to true")
-    setHasInteracted(true)
+  const handlePaalChange = (values) => {
+    console.log(`handle paal change, values: ${values}`)
+    setSelectedPaal(values)
+    if (!isEmpty(values)) {
+      const [paal] = values
+      const adhikarams = getAdhikarams(paal)
+      console.log(`adhikarams for ${paal}: ${adhikarams}`)
+      setAdhikarams(adhikarams)
+      setSelectedAdhikaram([adhikarams[0]])
+    }
   }
 
   const renderKurals = () => (
@@ -101,7 +92,7 @@ const Kurals = () => {
                     onChange={handlePaalChange}
                     options={paals}
                     placeholder={PAAL}
-                    selected={selectedPaal}
+                    selected={selectedPaal !== null ? selectedPaal : []}
                   />
                 </Form.Group>
               </Col>
@@ -110,11 +101,11 @@ const Kurals = () => {
                   <Form.Label>{ADHIKARAM}</Form.Label>
                   <Typeahead
                     id="adhikaram-selector"
-                    onChange={handleAdhikaramChange}
+                    onChange={setSelectedAdhikaram}
                     labelKey={(option) => `${option.no} - ${option.name}`}
                     options={adhikarams}
                     placeholder={ADHIKARAM}
-                    selected={selectedAdhikaram}
+                    selected={selectedAdhikaram !== null ? selectedAdhikaram : []}
                   />
                 </Form.Group>
               </Col>
