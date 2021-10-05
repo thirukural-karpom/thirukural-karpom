@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { Button, Container, Form, Row, Col, Alert, Card, Badge } from "react-bootstrap"
+import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
+import { CORRECT_EXPLANATION_MESSAGE, KURAL, WRONG_EXPLANATION_MESSAGE } from "../constants"
 import { getExplanations } from "../service/Quiz"
 import { getRandomKural } from "../service/Thirukural"
-import { CORRECT_EXPLANATION_MESSAGE, WRONG_EXPLANATION_MESSAGE, KURAL } from "../constants"
+import QuizFilters from "./QuizFilters"
 
 const FindExplanationQuiz = () => {
   const [kural, setKural] = useState(null)
@@ -10,6 +11,11 @@ const FindExplanationQuiz = () => {
   const [selectedExplanationIdx, setSelectedExplanationIdx] = useState(null)
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false)
   const [showResult, setShowResult] = useState(false)
+  const [filterData, setFilterData] = useState({
+    paals: [],
+    adhikarams: [],
+    explanationAuthor: null
+  })
 
   useEffect(() => {
     if (kural === null && explanations.length === 0) {
@@ -44,6 +50,11 @@ const FindExplanationQuiz = () => {
     setSelectedExplanationIdx(null)
   }
 
+  const handleApplyFilter = (data) => {
+    console.log(`handle apply filter callback, data: ${JSON.stringify(data)}`)
+    setFilterData(data)
+  }
+
   const renderKural = (kuralNo, kural) => (
     <Form.Group>
       <Row className="fs-5">
@@ -61,6 +72,7 @@ const FindExplanationQuiz = () => {
 
   return (
     <Container>
+      <QuizFilters onApply={handleApplyFilter} />
       <Row className="mt-3">
         <Col>
           <Card className="shadow-sm">
