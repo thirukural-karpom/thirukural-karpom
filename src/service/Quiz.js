@@ -29,12 +29,22 @@ const getRandomKurals = (kuralNoToSkip, paaltoUse, n) => {
   return randomKurals
 }
 
-const getRandomExplanations = (kuralToSkip, n = 3) => {
-  const paal = getPaal(kuralToSkip.kuralNo)
+const getExplanationByAuthor = (explanations, explanationAuthor) => {
+  return explanations
+    .find((explanation) => explanation.author === explanationAuthor)
+    .explanation
+}
+
+const getRandomExplanations = (answerKural, explanationAuthor, n = 3) => {
+  const paal = getPaal(answerKural.kuralNo)
   console.log(`getting random kurals for paal: ${paal}`)
-  const randomKurals = getRandomKurals(kuralToSkip.kuralNo, paal, n)
+  const randomKurals = getRandomKurals(answerKural.kuralNo, paal, n)
   console.log(`random kurals used for generating explanations: ${JSON.stringify(randomKurals)}`)
-  return randomKurals.map((k) => k.explanations[0])
+  return randomKurals.reduce((accumulator, kural) => {
+    const explanation = getExplanationByAuthor(kural.explanations, explanationAuthor)
+    accumulator.push(explanation)
+    return accumulator
+  }, [])
 }
 
 const getKural = () => {
@@ -42,13 +52,12 @@ const getKural = () => {
 }
 
 const getExplanations = (answerKural, explanationAuthor) => {
-  const incorrectExplanations = getRandomExplanations(answerKural)
-    .map((item) => ({ explanation: item.explanation, isCorrect: false }))
-  console.log(`incorrect explanations: ${JSON.stringify(incorrectExplanations)}`)
-
-  const correctExplanation = { explanation: answerKural.explanations[0].explanation, isCorrect: true }
-  console.log(`correct explanation: ${JSON.stringify(correctExplanation)}`)
-
+  const incorrectExplanations = getRandomExplanations(answerKural, explanationAuthor)
+    .map((explanation) => ({ explanation, isCorrect: false }))
+  const correctExplanation = {
+    explanation: getExplanationByAuthor(answerKural.explanations, explanationAuthor),
+    isCorrect: true
+  }
   const explanations = shuffleItems([...incorrectExplanations, correctExplanation])
   console.log(`shuffled explanations: ${JSON.stringify(explanations)}`)
   return explanations

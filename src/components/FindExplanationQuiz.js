@@ -54,6 +54,7 @@ const FindExplanationQuiz = () => {
   const handleApplyFilter = (data) => {
     console.log(`handle apply filter callback, data: ${JSON.stringify(data)}`)
     setFilters(data)
+    setQuiz(null)
   }
 
   const renderQuiz = () => (
