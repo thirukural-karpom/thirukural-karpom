@@ -1,16 +1,25 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { Typeahead } from "react-bootstrap-typeahead"
 import { ADHIKARAM, EXPLANATION, PAAL } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import paals from "../data/paals.json"
-import { getAdhikarams } from "../service/Thirukural"
+import { getAdhikarams, getAllAdhikarams } from "../service/Thirukural"
 
 const QuizFilters = (props) => {
   const [selectedPaals, setSelectedPaals] = useState([])
   const [selectedAdhikarams, setSelectedAdhikarams] = useState([])
   const [selectedExplanationAuthor, setSelectedExplanationAuthor] = useState([props.defaultExplanationAuthor])
-  const [adhikarams, setAdhikarams] = useState([])
+  const [adhikarams, setAdhikarams] = useState(null)
+
+  useEffect(() => {
+    console.log(">>>>> side-effect: adhikarams")
+    if (!adhikarams) {
+      const allAdhikarams = getAllAdhikarams()
+      setAdhikarams(allAdhikarams)
+    }
+    console.log("<<<<< side-effect: adhikarams")
+  }, [adhikarams])
 
   const handleOnSubmit = (e) => {
     props.onApply({
@@ -30,6 +39,7 @@ const QuizFilters = (props) => {
     }, [])
     console.log(`handle paal change in filter, adhikarams: ${JSON.stringify(adhikarams)}`)
     setAdhikarams(adhikarams)
+    setSelectedAdhikarams([])
   }
 
   return (
@@ -48,11 +58,11 @@ const QuizFilters = (props) => {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>{PAAL}</Form.Label>
+            <Form.Label>{ADHIKARAM}</Form.Label>
             <Typeahead
               id="adhikaram-selector"
               labelKey={(option) => `${option.no} - ${option.name}`}
-              options={adhikarams}
+              options={adhikarams ? adhikarams : []}
               placeholder={ADHIKARAM}
               selected={selectedAdhikarams}
               onChange={setSelectedAdhikarams}

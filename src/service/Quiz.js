@@ -47,8 +47,15 @@ const getRandomExplanations = (answerKural, explanationAuthor, n = 3) => {
   }, [])
 }
 
-const getKural = () => {
-  return getRandomKuralFrom(thirukurals)
+const getKural = (paals, adhikarams) => {
+  let filteredThirukurals = thirukurals
+  if (paals.length) {
+    filteredThirukurals = filteredThirukurals.filter((thirukural) => paals.includes(thirukural.paal))
+  }
+  if (adhikarams.length) {
+    filteredThirukurals = filteredThirukurals.filter((thirukural) => adhikarams.includes(thirukural.adhikaramName))
+  }
+  return getRandomKuralFrom(filteredThirukurals)
 }
 
 const getExplanations = (answerKural, explanationAuthor) => {

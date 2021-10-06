@@ -5,13 +5,12 @@ const getAdhikarams = (paal) => {
   return adhikaramsAndKurals.map((item) => ({ no: item.aadhikaramNo, name: item.adhikaramName }))
 }
 
+const getAllAdhikarams = () => {
+  return thirukurals.map((item) => ({ no: item.aadhikaramNo, name: item.adhikaramName }))
+}
+
 const getAdhikaramsAndKurals = (paal) => {
-  return thirukurals.reduce((accumulator, thirukural) => {
-    if (thirukural.paal === paal) {
-      accumulator.push(thirukural)
-    }
-    return accumulator
-  }, [])
+  return thirukurals.filter((thirukural) => thirukural.paal === paal)
 }
 
 const getKurals = (no) => thirukurals[no - 1].kurals
@@ -21,4 +20,4 @@ const getPaal = (kuralNo) => {
   return found.paal
 }
 
-export { getAdhikarams, getKurals, getPaal, getAdhikaramsAndKurals }
+export { getAdhikarams, getKurals, getPaal, getAdhikaramsAndKurals, getAllAdhikarams }

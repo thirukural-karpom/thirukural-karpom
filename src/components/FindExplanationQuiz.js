@@ -20,9 +20,9 @@ const FindExplanationQuiz = () => {
   useEffect(() => {
     console.log(">>>>> side-effect - quiz")
     if (!quiz) {
-      const randomKural = getKural()
+      const { paals, adhikarams, explanationAuthor } = filters
+      const randomKural = getKural(paals, adhikarams.map((adhikaram) => adhikaram.name))
       console.log(`random kural: ${randomKural}`)
-      const {explanationAuthor} = filters
       const explanations = getExplanations(randomKural, explanationAuthor)
       console.log(`random explanations: ${JSON.stringify(explanations)}`)
       const { kuralNo, kural } = randomKural
