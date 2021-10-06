@@ -41,8 +41,7 @@ const getRandomExplanations = (answerKural, explanationAuthor, n = 3) => {
   console.log(`random kurals used for generating explanations: ${JSON.stringify(randomKurals)}`)
   return randomKurals.reduce((accumulator, kural) => {
     const explanation = getExplanationByAuthor(kural.explanations, explanationAuthor)
-    accumulator.push(explanation)
-    return accumulator
+    return accumulator.concat(explanation)
   }, [])
 }
 

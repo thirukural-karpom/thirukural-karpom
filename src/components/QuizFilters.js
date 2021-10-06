@@ -42,10 +42,7 @@ const QuizFilters = (props) => {
   const handlePaalChange = (paals) => {
     setSelectedPaals(paals)
     console.log(`handle paal change in filter, paals: ${paals}`)
-    const adhikarams = paals.reduce((accumulator, paal) => {
-      accumulator.push(...getAdhikarams(paal))
-      return accumulator
-    }, [])
+    const adhikarams = paals.reduce((accumulator, paal) => accumulator.concat(...getAdhikarams(paal)), [])
     console.log(`handle paal change in filter, adhikarams: ${JSON.stringify(adhikarams)}`)
     setAdhikarams(adhikarams)
     setSelectedAdhikarams([])
