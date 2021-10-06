@@ -89,13 +89,18 @@ const QuizFilters = (props) => {
                     onChange={setSelectedExplanationAuthor}
                   />
                 </Form.Group>
-                <Form.Group>
-                  <Button type="submit">Apply</Button>
+                <Form.Group className="mt-3">
                   <Button
-                    variant="warning"
+                    type="submit"
+                    className="mx-2">
+                    Apply
+                  </Button>
+                  <Button
+                    variant="danger"
                     type="button"
-                    onClick={handleClear}>
-                    Clear
+                    onClick={handleClear}
+                    className="mx-2">
+                    <i className="bi bi-x"></i> Clear
                   </Button>
                 </Form.Group>
               </Form>
