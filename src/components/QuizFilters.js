@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { Button, Col, Form, Row } from "react-bootstrap"
+import { Accordion, Button, Col, Form, Row } from "react-bootstrap"
 import { Typeahead } from "react-bootstrap-typeahead"
-import { ADHIKARAM, EXPLANATION, PAAL } from "../constants"
+import { ADHIKARAM, EXPLANATION, FILTERS, PAAL } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import paals from "../data/paals.json"
 import { getAdhikarams, getAllAdhikarams } from "../service/Thirukural"
@@ -52,53 +52,59 @@ const QuizFilters = (props) => {
   }
 
   return (
-    <Row>
+    <Row className="mt-2">
       <Col>
-        <Form onSubmit={handleOnSubmit}>
-          <Form.Group>
-            <Form.Label>{PAAL}</Form.Label>
-            <Typeahead
-              id="paal-selector"
-              options={paals}
-              placeholder={PAAL}
-              selected={selectedPaals}
-              onChange={handlePaalChange}
-              multiple
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>{ADHIKARAM}</Form.Label>
-            <Typeahead
-              id="adhikaram-selector"
-              labelKey={(option) => `${option.no} - ${option.name}`}
-              options={adhikarams ? adhikarams : []}
-              placeholder={ADHIKARAM}
-              selected={selectedAdhikarams}
-              onChange={setSelectedAdhikarams}
-              multiple
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>{EXPLANATION}</Form.Label>
-            <Typeahead
-              id="explanation-author-selector"
-              options={explanationAuthors}
-              placeholder={EXPLANATION}
-              selected={selectedExplanationAuthor}
-              onChange={setSelectedExplanationAuthor}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Button type="submit">Apply</Button>
-            <Button
-              variant="warning"
-              type="button"
-              onClick={handleClear}
-            >
-              Clear
-            </Button>
-          </Form.Group>
-        </Form>
+        <Accordion>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>{FILTERS}</Accordion.Header>
+            <Accordion.Body>
+              <Form onSubmit={handleOnSubmit}>
+                <Form.Group>
+                  <Form.Label>{PAAL}</Form.Label>
+                  <Typeahead
+                    id="paal-selector"
+                    options={paals}
+                    placeholder={PAAL}
+                    selected={selectedPaals}
+                    onChange={handlePaalChange}
+                    multiple
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>{ADHIKARAM}</Form.Label>
+                  <Typeahead
+                    id="adhikaram-selector"
+                    labelKey={(option) => `${option.no} - ${option.name}`}
+                    options={adhikarams ? adhikarams : []}
+                    placeholder={ADHIKARAM}
+                    selected={selectedAdhikarams}
+                    onChange={setSelectedAdhikarams}
+                    multiple
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>{EXPLANATION}</Form.Label>
+                  <Typeahead
+                    id="explanation-author-selector"
+                    options={explanationAuthors}
+                    placeholder={EXPLANATION}
+                    selected={selectedExplanationAuthor}
+                    onChange={setSelectedExplanationAuthor}
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Button type="submit">Apply</Button>
+                  <Button
+                    variant="warning"
+                    type="button"
+                    onClick={handleClear}>
+                    Clear
+                  </Button>
+                </Form.Group>
+              </Form>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
       </Col>
     </Row>
   )
