@@ -22,12 +22,21 @@ const QuizFilters = (props) => {
   }, [adhikarams])
 
   const handleOnSubmit = (e) => {
+    console.log("handle filter form submit")
     props.onApply({
       paals: selectedPaals,
       adhikarams: selectedAdhikarams,
       explanationAuthor: selectedExplanationAuthor[0]
     })
     e.preventDefault()
+  }
+
+  const handleClear = () => {
+    console.log("handle clear filter")
+    setSelectedPaals([])
+    setSelectedAdhikarams([])
+    setSelectedExplanationAuthor([props.defaultExplanationAuthor])
+    setAdhikarams(null)
   }
 
   const handlePaalChange = (paals) => {
@@ -81,6 +90,13 @@ const QuizFilters = (props) => {
           </Form.Group>
           <Form.Group>
             <Button type="submit">Apply</Button>
+            <Button
+              variant="warning"
+              type="button"
+              onClick={handleClear}
+            >
+              Clear
+            </Button>
           </Form.Group>
         </Form>
       </Col>
