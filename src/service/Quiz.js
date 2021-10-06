@@ -13,7 +13,6 @@ const getRandomKuralFrom = (adhikaramsAndKurals) => {
 
 const getRandomKurals = (kuralNoToSkip, paaltoUse, n) => {
   const adhikaramsAndKurals = getAdhikaramsAndKurals(paaltoUse)
-  console.log(paaltoUse)
   const randomKurals = []
   while (randomKurals.length < n) {
     const randomKural = getRandomKuralFrom(adhikaramsAndKurals)
@@ -29,11 +28,11 @@ const getRandomKurals = (kuralNoToSkip, paaltoUse, n) => {
   return randomKurals
 }
 
-const getExplanationByAuthor = (explanations, explanationAuthor) => {
-  return explanations
+const getExplanationByAuthor = (explanations, explanationAuthor) => (
+  explanations
     .find((explanation) => explanation.author === explanationAuthor)
     .explanation
-}
+)
 
 const getRandomExplanations = (answerKural, explanationAuthor, n = 3) => {
   const paal = getPaal(answerKural.kuralNo)
