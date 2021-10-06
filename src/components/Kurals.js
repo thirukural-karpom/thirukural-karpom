@@ -42,7 +42,7 @@ const Kurals = () => {
   const handlePaalChange = (values) => {
     console.log(`handle paal change, values: ${values}`)
     setSelectedPaal(values)
-    if (!values.length) {
+    if (values.length) {
       const [paal] = values
       const adhikarams = getAdhikarams(paal)
       console.log(`adhikarams for ${paal}: ${adhikarams}`)

@@ -2,8 +2,7 @@ import { useEffect, useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
 import { CORRECT_EXPLANATION_MESSAGE, KURAL, WRONG_EXPLANATION_MESSAGE } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
-import { getExplanations } from "../service/Quiz"
-import { getRandomKural } from "../service/Thirukural"
+import { getKural, getExplanations } from "../service/Quiz"
 import QuizFilters from "./QuizFilters"
 
 const FindExplanationQuiz = () => {
@@ -12,7 +11,7 @@ const FindExplanationQuiz = () => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false)
   const [showResult, setShowResult] = useState(false)
   const defaultExplanationAuthor = explanationAuthors[0]
-  const [filterData, setFilterData] = useState({
+  const [filters, setFilters] = useState({
     paals: [],
     adhikarams: [],
     explanationAuthor: defaultExplanationAuthor
@@ -21,9 +20,10 @@ const FindExplanationQuiz = () => {
   useEffect(() => {
     console.log(">>>>> side-effect - quiz")
     if (!quiz) {
-      const randomKural = getRandomKural()
+      const randomKural = getKural()
       console.log(`random kural: ${randomKural}`)
-      const explanations = getExplanations(randomKural)
+      const {explanationAuthor} = filters
+      const explanations = getExplanations(randomKural, explanationAuthor)
       console.log(`random explanations: ${JSON.stringify(explanations)}`)
       const { kuralNo, kural } = randomKural
       const quiz = { kuralNo, kural, explanations }
@@ -32,7 +32,7 @@ const FindExplanationQuiz = () => {
       setSelectedExplanation(explanations[0].explanation)
     }
     console.log("<<<<< side-effect - quiz")
-  }, [quiz])
+  }, [quiz, filters])
 
   const handleOnSubmit = (e) => {
     const correctExplanation = quiz.explanations.find((item) => item.isCorrect).explanation
@@ -53,7 +53,7 @@ const FindExplanationQuiz = () => {
 
   const handleApplyFilter = (data) => {
     console.log(`handle apply filter callback, data: ${JSON.stringify(data)}`)
-    setFilterData(data)
+    setFilters(data)
   }
 
   const renderQuiz = () => (
