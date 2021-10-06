@@ -6,9 +6,8 @@ import { getRandomKural } from "../service/Thirukural"
 import QuizFilters from "./QuizFilters"
 
 const FindExplanationQuiz = () => {
-  const [kural, setKural] = useState(null)
-  const [explanations, setExplanations] = useState([])
-  const [selectedExplanationIdx, setSelectedExplanationIdx] = useState(null)
+  const [quiz, setQuiz] = useState(null)
+  const [selectedExplanation, setSelectedExplanation] = useState(null)
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false)
   const [showResult, setShowResult] = useState(false)
   const [filterData, setFilterData] = useState({
@@ -18,24 +17,26 @@ const FindExplanationQuiz = () => {
   })
 
   useEffect(() => {
-    if (kural === null && explanations.length === 0) {
-      const kural = getRandomKural()
-      const explanations = getExplanations(kural)
-      setKural(kural)
-      setExplanations(explanations)
+    console.log(">>>>> side-effect - quiz")
+    if (quiz === null) {
+      const randomKural = getRandomKural()
+      console.log(`random kural: ${randomKural}`)
+      const explanations = getExplanations(randomKural)
+      console.log(`random explanations: ${JSON.stringify(explanations)}`)
+      const { kuralNo, kural } = randomKural
+      const quiz = { kuralNo, kural, explanations }
+      console.log(`quiz: ${JSON.stringify(quiz)}`)
+      setQuiz(quiz)
+      setSelectedExplanation(explanations[0].explanation)
     }
-  }, [kural, explanations])
-
-  useEffect(() => {
-    if (selectedExplanationIdx === null) {
-      setSelectedExplanationIdx(0)
-    }
-  }, [selectedExplanationIdx])
+    console.log("<<<<< side-effect - quiz")
+  }, [quiz])
 
   const handleOnSubmit = (e) => {
-    const selectedExplanation = explanations[selectedExplanationIdx].explanation
-    const correctExplanation = kural.explanations[0].explanation
-    console.log(`handle form submit, selectedExplanation: ${selectedExplanation} correctExplanation: ${correctExplanation}`)
+    const correctExplanation = quiz.explanations.find((item) => item.isCorrect).explanation
+    console.log(`handle form submit,
+      selectedExplanation: ${JSON.stringify(selectedExplanation)}
+      correctExplanation: ${JSON.stringify(correctExplanation)}`)
     setIsCorrectAnswer(selectedExplanation === correctExplanation)
     setShowResult(true)
     e.preventDefault()
@@ -45,9 +46,7 @@ const FindExplanationQuiz = () => {
     console.log("handle next quiz")
     setShowResult(false)
     setIsCorrectAnswer(false)
-    setKural(null)
-    setExplanations([])
-    setSelectedExplanationIdx(null)
+    setQuiz(null)
   }
 
   const handleApplyFilter = (data) => {
@@ -55,19 +54,37 @@ const FindExplanationQuiz = () => {
     setFilterData(data)
   }
 
-  const renderKural = (kuralNo, kural) => (
-    <Form.Group>
-      <Row className="fs-5">
-        <Col>
-          <Badge bg="primary">{`${KURAL} ${kuralNo}`}</Badge>
-        </Col>
-      </Row>
-      <Row className="my-3">
-        <Col>
-          <Form.Label className="kural">{kural}</Form.Label>
-        </Col>
-      </Row>
-    </Form.Group>
+  const renderQuiz = () => (
+    <>
+      <Form.Group>
+        <Row className="fs-5">
+          <Col>
+            <Badge bg="primary">{`${KURAL} ${quiz.kuralNo}`}</Badge>
+          </Col>
+        </Row>
+        <Row className="my-3">
+          <Col>
+            <Form.Label className="kural">{quiz.kural}</Form.Label>
+          </Col>
+        </Row>
+      </Form.Group>
+      <Form.Group>
+        {
+          quiz.explanations.map((item, idx) => (
+            <Form.Check
+              key={idx}
+              id={`explanation-option-${idx}`}
+              value={item.explanation}
+              name="explanations"
+              type="radio"
+              label={item.explanation}
+              onChange={(e) => setSelectedExplanation(e.target.value)}
+              defaultChecked={idx === 0}
+            />
+          ))
+        }
+      </Form.Group>
+    </>
   )
 
   return (
@@ -84,23 +101,9 @@ const FindExplanationQuiz = () => {
                 {WRONG_EXPLANATION_MESSAGE}
               </Alert>
               <Form onSubmit={handleOnSubmit}>
-                {kural !== null ? renderKural(kural.kuralNo, kural.kural) : renderKural("", "")}
-                <Form.Group>
-                  {
-                    explanations.map((item, idx) => (
-                      <Form.Check
-                        key={idx}
-                        id={`explanation-option-${idx}`}
-                        value={idx}
-                        name="explanations"
-                        type="radio"
-                        label={item.explanation}
-                        onChange={(e) => setSelectedExplanationIdx(e.target.value)}
-                        defaultChecked={idx === 0}
-                      />
-                    ))
-                  }
-                </Form.Group>
+
+                {quiz !== null ? renderQuiz() : "Loading quiz..."}
+
                 <Form.Group className="text-center mt-4">
                   <Button type="submit" className="mx-2">
                     Submit

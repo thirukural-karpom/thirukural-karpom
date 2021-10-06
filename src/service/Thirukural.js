@@ -57,7 +57,7 @@ const getRandomExplanations = (kuralToSkip, n = 3) => {
   const paal = getPaal(kuralToSkip.kuralNo)
   console.log(`getting random kurals for paal: ${paal}`)
   const randomKurals = getRandomKurals(kuralToSkip.kuralNo, paal, n)
-  console.log(`random kurals used for generating incorrect explanations: ${JSON.stringify(randomKurals)}`)
+  console.log(`random kurals used for generating explanations: ${JSON.stringify(randomKurals)}`)
   return randomKurals.map((k) => k.explanations[0])
 }
 
