@@ -20,7 +20,7 @@ const FindExplanationQuiz = () => {
 
   useEffect(() => {
     console.log(">>>>> side-effect - quiz")
-    if (quiz === null) {
+    if (!quiz) {
       const randomKural = getRandomKural()
       console.log(`random kural: ${randomKural}`)
       const explanations = getExplanations(randomKural)

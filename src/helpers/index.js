@@ -7,6 +7,4 @@ const shuffleItems = (array) => {
     .map(({ value }) => value)
 }
 
-const isEmpty = (array) => array.length === 0
-
-export { randomInteger, shuffleItems, isEmpty }
+export { randomInteger, shuffleItems }

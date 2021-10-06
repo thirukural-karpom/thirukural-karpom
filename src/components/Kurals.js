@@ -3,7 +3,6 @@ import { Badge, Button, Card, Col, Container, Form, Row, Tab, Tabs } from "react
 import { Typeahead } from "react-bootstrap-typeahead"
 import { ADHIKARAM, KURAL, PAAL } from "../constants"
 import paals from "../data/paals.json"
-import { isEmpty } from "../helpers"
 import { getAdhikarams, getKurals } from "../service/Thirukural"
 
 const Kurals = () => {
@@ -14,7 +13,7 @@ const Kurals = () => {
 
   useEffect(() => {
     console.log(">>>>> side-effect - selectedPaal")
-    if (selectedPaal === null) {
+    if (!selectedPaal) {
       const paal = paals[0]
       const adhikarams = getAdhikarams(paal)
       console.log(`adhikarams for ${paal}: ${adhikarams}`)
@@ -43,7 +42,7 @@ const Kurals = () => {
   const handlePaalChange = (values) => {
     console.log(`handle paal change, values: ${values}`)
     setSelectedPaal(values)
-    if (!isEmpty(values)) {
+    if (!values.length) {
       const [paal] = values
       const adhikarams = getAdhikarams(paal)
       console.log(`adhikarams for ${paal}: ${adhikarams}`)
