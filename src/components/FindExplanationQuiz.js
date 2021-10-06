@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
 import { CORRECT_EXPLANATION_MESSAGE, KURAL, WRONG_EXPLANATION_MESSAGE } from "../constants"
+import explanationAuthors from "../data/explanation-authors.json"
 import { getExplanations } from "../service/Quiz"
 import { getRandomKural } from "../service/Thirukural"
 import QuizFilters from "./QuizFilters"
@@ -10,10 +11,11 @@ const FindExplanationQuiz = () => {
   const [selectedExplanation, setSelectedExplanation] = useState(null)
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false)
   const [showResult, setShowResult] = useState(false)
+  const defaultExplanationAuthor = explanationAuthors[0]
   const [filterData, setFilterData] = useState({
     paals: [],
     adhikarams: [],
-    explanationAuthor: null
+    explanationAuthor: defaultExplanationAuthor
   })
 
   useEffect(() => {
@@ -89,7 +91,7 @@ const FindExplanationQuiz = () => {
 
   return (
     <Container>
-      <QuizFilters onApply={handleApplyFilter} />
+      <QuizFilters defaultExplanationAuthor={defaultExplanationAuthor} onApply={handleApplyFilter} />
       <Row className="mt-3">
         <Col>
           <Card className="shadow-sm">

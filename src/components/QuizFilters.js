@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { Typeahead } from "react-bootstrap-typeahead"
 import { ADHIKARAM, EXPLANATION, PAAL } from "../constants"
@@ -9,7 +9,7 @@ import { getAdhikarams } from "../service/Thirukural"
 const QuizFilters = (props) => {
   const [selectedPaals, setSelectedPaals] = useState([])
   const [selectedAdhikarams, setSelectedAdhikarams] = useState([])
-  const [selectedExplanationAuthor, setSelectedExplanationAuthor] = useState([explanationAuthors[0]])
+  const [selectedExplanationAuthor, setSelectedExplanationAuthor] = useState([props.defaultExplanationAuthor])
   const [adhikarams, setAdhikarams] = useState([])
 
   const handleOnSubmit = (e) => {
