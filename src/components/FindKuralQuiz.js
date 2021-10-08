@@ -83,7 +83,7 @@ const FindKuralQuiz = () => {
               label={item.kural}
               onChange={(e) => setSelectedKural(e.target.value)}
               defaultChecked={idx === 0}
-              className="kural fs-6"
+              className="kural fs-6 mx-3"
             />
           ))
         }

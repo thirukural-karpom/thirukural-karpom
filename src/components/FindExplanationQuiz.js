@@ -83,6 +83,7 @@ const FindExplanationQuiz = () => {
               label={item.explanation}
               onChange={(e) => setSelectedExplanation(e.target.value)}
               defaultChecked={idx === 0}
+              className="mx-3"
             />
           ))
         }
