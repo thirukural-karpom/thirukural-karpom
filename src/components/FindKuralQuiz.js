@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
-import { CORRECT_EXPLANATION_MESSAGE, KURAL, WRONG_EXPLANATION_MESSAGE } from "../constants"
+import { CORRECT_KURAL_MESSAGE, EXPLANATION, WRONG_KURAL_MESSAGE } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
-import { getKural, getExplanationsForKural } from "../service/FindExplanationQuiz"
+import FindKuralQuizGenerator from "../service/FindKuralQuizGenerator"
 import QuizFilters from "./QuizFilters"
 
-const FindExplanationQuiz = () => {
+const FindKuralQuiz = () => {
   const [quiz, setQuiz] = useState(null)
-  const [selectedExplanation, setSelectedExplanation] = useState(null)
+  const [selectedKural, setSelectedKural] = useState(null)
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false)
   const [showResult, setShowResult] = useState(false)
   const defaultExplanationAuthor = explanationAuthors[0]
@@ -21,25 +21,25 @@ const FindExplanationQuiz = () => {
     console.log(">>>>> side-effect - quiz")
     if (!quiz) {
       const { paals, adhikarams, explanationAuthor } = filters
-      const randomKural = getKural(paals, adhikarams.map((adhikaram) => adhikaram.name))
-      console.log(`random kural: ${randomKural}`)
-      const explanations = getExplanationsForKural(randomKural, explanationAuthor)
-      console.log(`random explanations: ${JSON.stringify(explanations)}`)
-      const { kuralNo, kural } = randomKural
-      const quiz = { kuralNo, kural, explanations }
+      const quizGenerator = new FindKuralQuizGenerator()
+      const explanation = quizGenerator.getExplanation(paals, adhikarams.map(adhikaram => adhikaram.name), explanationAuthor)
+      console.log(`random explanation: ${explanation}`)
+      const kurals = quizGenerator.getKurals()
+      console.log(`random kurals: ${kurals}`)
+      const quiz = { kurals, explanation }
       console.log(`quiz: ${JSON.stringify(quiz)}`)
       setQuiz(quiz)
-      setSelectedExplanation(explanations[0].explanation)
+      setSelectedKural(kurals[0].kural)
     }
     console.log("<<<<< side-effect - quiz")
   }, [quiz, filters])
 
   const handleOnSubmit = (e) => {
-    const correctExplanation = quiz.explanations.find((item) => item.isCorrect).explanation
+    const correctKural = quiz.kurals.find((item) => item.isCorrect).kural
     console.log(`handle form submit,
-      selectedExplanation: ${JSON.stringify(selectedExplanation)}
-      correctExplanation: ${JSON.stringify(correctExplanation)}`)
-    setIsCorrectAnswer(selectedExplanation === correctExplanation)
+      selectedKural: ${JSON.stringify(selectedKural)}
+      correctKural: ${JSON.stringify(correctKural)}`)
+    setIsCorrectAnswer(selectedKural === correctKural)
     setShowResult(true)
     e.preventDefault()
   }
@@ -62,27 +62,28 @@ const FindExplanationQuiz = () => {
       <Form.Group>
         <Row className="fs-5">
           <Col>
-            <Badge bg="primary">{`${KURAL} ${quiz.kuralNo}`}</Badge>
+            <Badge bg="primary">{EXPLANATION}</Badge>
           </Col>
         </Row>
-        <Row className="my-3">
+        <Row className="my-3 fs-5">
           <Col>
-            <Form.Label className="kural">{quiz.kural}</Form.Label>
+            <Form.Label>{quiz.explanation}</Form.Label>
           </Col>
         </Row>
       </Form.Group>
       <Form.Group>
         {
-          quiz.explanations.map((item, idx) => (
+          quiz.kurals.map((item, idx) => (
             <Form.Check
               key={idx}
-              id={`explanation-option-${idx}`}
-              value={item.explanation}
-              name="explanations"
+              id={`kural-option-${idx}`}
+              value={item.kural}
+              name="kurals"
               type="radio"
-              label={item.explanation}
-              onChange={(e) => setSelectedExplanation(e.target.value)}
+              label={item.kural}
+              onChange={(e) => setSelectedKural(e.target.value)}
               defaultChecked={idx === 0}
+              className="kural fs-6"
             />
           ))
         }
@@ -98,10 +99,10 @@ const FindExplanationQuiz = () => {
           <Card className="shadow-sm">
             <Card.Body>
               <Alert variant="success" show={showResult && isCorrectAnswer}>
-                {CORRECT_EXPLANATION_MESSAGE}
+                {CORRECT_KURAL_MESSAGE}
               </Alert>
               <Alert variant="danger" show={showResult && !isCorrectAnswer}>
-                {WRONG_EXPLANATION_MESSAGE}
+                {WRONG_KURAL_MESSAGE}
               </Alert>
               <Form onSubmit={handleOnSubmit}>
 
@@ -133,4 +134,4 @@ const FindExplanationQuiz = () => {
   )
 }
 
-export default FindExplanationQuiz
+export default FindKuralQuiz
