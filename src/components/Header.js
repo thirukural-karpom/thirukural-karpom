@@ -20,6 +20,14 @@ const Header = () => {
                 <NavDropdown.Item href="/quiz/findKural">{FIND_KURAL}</NavDropdown.Item>
               </NavDropdown>
             </Nav>
+            <Nav>
+              <Nav.Link
+                target="_blank"
+                href="https://github.com/arunvelsriram/thirukural-karpom"
+                className="py-0 nav-icon-link">
+                <i className="bi bi-github fs-5"></i>
+              </Nav.Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
