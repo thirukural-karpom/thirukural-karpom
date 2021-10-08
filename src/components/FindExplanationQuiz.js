@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
 import { CORRECT_EXPLANATION_MESSAGE, KURAL, WRONG_EXPLANATION_MESSAGE } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
-import { getKural, getExplanationsForKural } from "../service/FindExplanationQuiz"
+import FindExplanationQuizGenerator from "../service/FindExplanationQuizGenerator"
 import QuizFilters from "./QuizFilters"
 
 const FindExplanationQuiz = () => {
@@ -21,11 +21,11 @@ const FindExplanationQuiz = () => {
     console.log(">>>>> side-effect - quiz")
     if (!quiz) {
       const { paals, adhikarams, explanationAuthor } = filters
-      const randomKural = getKural(paals, adhikarams.map((adhikaram) => adhikaram.name))
-      console.log(`random kural: ${randomKural}`)
-      const explanations = getExplanationsForKural(randomKural, explanationAuthor)
+      const quizGenerator = new FindExplanationQuizGenerator()
+      const { kural, kuralNo } = quizGenerator.getKural(paals, adhikarams.map(adhikaram => adhikaram.name), explanationAuthor)
+      console.log(`random kural: ${kuralNo} - ${kural}`)
+      const explanations = quizGenerator.getExplanations()
       console.log(`random explanations: ${JSON.stringify(explanations)}`)
-      const { kuralNo, kural } = randomKural
       const quiz = { kuralNo, kural, explanations }
       console.log(`quiz: ${JSON.stringify(quiz)}`)
       setQuiz(quiz)

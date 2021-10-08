@@ -1,6 +1,5 @@
 import { shuffleItems } from "../helpers"
-import { getKural, getRandomKurals } from "./FindExplanationQuiz"
-import { getExplanationByAuthor } from "./Quiz"
+import { getExplanationByAuthor, getKural, getRandomKurals } from "./Quiz"
 
 class FindKuralQuizGenerator {
   constructor() {
@@ -17,7 +16,7 @@ class FindKuralQuizGenerator {
 
   getKurals() {
     const { kuralNo, kural, paal } = this.answerKural
-    const inCorrectKurals = getRandomKurals(kuralNo, paal, 3)
+    const inCorrectKurals = getRandomKurals(kuralNo, paal)
       .map(({ kural }) => ({ kural, isCorrect: false }))
     const correctKural = { kural, isCorrect: true }
     const kurals = shuffleItems([...inCorrectKurals, correctKural])
