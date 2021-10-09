@@ -24,8 +24,8 @@ const Header = () => {
               <Nav.Link
                 target="_blank"
                 href="https://github.com/arunvelsriram/thirukural-karpom"
-                className="py-0 nav-icon-link">
-                <i className="bi bi-github fs-5"></i>
+                className="py-0 fs-5">
+                <i className="bi bi-github"></i>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

@@ -63,7 +63,7 @@ const Kurals = () => {
                 </Col>
               </Row>
               <Row className="my-3">
-                <Col className="kural">
+                <Col className="kural-text">
                   {k.kural}
                 </Col>
               </Row>

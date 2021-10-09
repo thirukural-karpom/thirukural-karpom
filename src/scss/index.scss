@@ -1,0 +1,40 @@
+@import "~bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~react-bootstrap-typeahead/css/Typeahead.css";
+
+// Common styles used across components
+
+.kural-text {
+  white-space: pre-line;
+  font-size: 0.85rem;
+}
+
+@include media-breakpoint-up(sm) {
+  .kural-text {
+    font-size: 0.85rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .kural-text {
+    font-size: 1rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .kural-text {
+    font-size: 1.25rem;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .kural-text {
+    font-size: 1.5rem;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+}
+
+// Components
+@import "./Header.scss";

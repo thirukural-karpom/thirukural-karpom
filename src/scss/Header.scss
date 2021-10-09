@@ -1,0 +1,11 @@
+header {
+  .nav-link {
+    i {
+      color: rgba($white, 0.75);
+
+      &:hover {
+        color: rgba($white, 1);
+      }
+    }
+  }
+}

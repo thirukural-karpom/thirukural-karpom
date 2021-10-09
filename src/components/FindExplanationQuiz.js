@@ -67,7 +67,7 @@ const FindExplanationQuiz = () => {
         </Row>
         <Row className="my-3">
           <Col>
-            <Form.Label className="kural">{quiz.kural}</Form.Label>
+            <Form.Label className="kural-text">{quiz.kural}</Form.Label>
           </Col>
         </Row>
       </Form.Group>
