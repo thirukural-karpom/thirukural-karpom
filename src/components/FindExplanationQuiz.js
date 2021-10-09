@@ -94,7 +94,7 @@ const FindExplanationQuiz = () => {
   return (
     <Container>
       <QuizFilters defaultExplanationAuthor={defaultExplanationAuthor} onApply={handleApplyFilter} />
-      <Row className="mt-2">
+      <Row>
         <Col>
           <Card className="shadow-sm">
             <Card.Body>
