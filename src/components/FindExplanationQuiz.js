@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
-import { CORRECT_EXPLANATION_MESSAGE, KURAL, WRONG_EXPLANATION_MESSAGE } from "../constants"
+import { CORRECT_EXPLANATION_MESSAGE, KURAL, NEXT, SUBMIT, WRONG_EXPLANATION_MESSAGE } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import FindExplanationQuizGenerator from "../service/FindExplanationQuizGenerator"
 import QuizFilters from "./QuizFilters"
@@ -110,7 +110,7 @@ const FindExplanationQuiz = () => {
 
                 <Form.Group className="text-center mt-4">
                   <Button type="submit" className="mx-2">
-                    Submit
+                    {SUBMIT}
                   </Button>
                   <Button
                     variant="success"
@@ -118,7 +118,7 @@ const FindExplanationQuiz = () => {
                     disabled={!isCorrectAnswer}
                     onClick={handlNextQuiz}
                     className="mx-2">
-                    Next <i className="bi bi-arrow-right-short"></i>
+                    {NEXT} <i className="bi bi-arrow-right-short"></i>
                   </Button>
                 </Form.Group>
               </Form>

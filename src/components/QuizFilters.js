@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Accordion, Button, Col, Form, Row } from "react-bootstrap"
 import { Typeahead } from "react-bootstrap-typeahead"
-import { ADHIKARAM, EXPLANATION, FILTERS, PAAL } from "../constants"
+import { ADHIKARAM, CLEAR, EXPLANATION, FILTERS, PAAL, SUBMIT } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import paals from "../data/paals.json"
 import { getAdhikarams, getAllAdhikarams } from "../service/Thirukural"
@@ -93,14 +93,14 @@ const QuizFilters = (props) => {
                   <Button
                     type="submit"
                     className="mx-2">
-                    Apply
+                    {SUBMIT}
                   </Button>
                   <Button
                     variant="danger"
                     type="button"
                     onClick={handleClear}
                     className="mx-2">
-                    <i className="bi bi-x"></i> Clear
+                    <i className="bi bi-x"></i> {CLEAR}
                   </Button>
                 </Form.Group>
               </Form>

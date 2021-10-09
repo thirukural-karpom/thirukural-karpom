@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Badge, Button, Card, Col, Container, Form, Row, Tab, Tabs } from "react-bootstrap"
 import { Typeahead } from "react-bootstrap-typeahead"
-import { ADHIKARAM, KURAL, PAAL } from "../constants"
+import { ADHIKARAM, KURAL, PAAL, SUBMIT } from "../constants"
 import paals from "../data/paals.json"
 import { getAdhikarams, getKurals } from "../service/Thirukural"
 
@@ -112,7 +112,7 @@ const Kurals = () => {
                 <Form.Group>
                   <Form.Label>&nbsp;</Form.Label>
                   <Form.Control as={Button} type="submit">
-                    Submit
+                    {SUBMIT}
                   </Form.Control>
                 </Form.Group>
               </Col>
