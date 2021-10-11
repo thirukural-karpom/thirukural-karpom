@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
-import { CORRECT_EXPLANATION_MESSAGE, KURAL, NEXT, SUBMIT, WRONG_EXPLANATION_MESSAGE } from "../constants"
+import { CORRECT_EXPLANATION_MESSAGE, FIND_EXPLANATION, KURAL, NEXT, SUBMIT, WRONG_EXPLANATION_MESSAGE } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import FindExplanationQuizGenerator from "../service/FindExplanationQuizGenerator"
 import QuizFilters from "./QuizFilters"
@@ -93,8 +93,13 @@ const FindExplanationQuiz = () => {
 
   return (
     <Container>
+      <Row className="my-4">
+        <Col>
+          <h2>{FIND_EXPLANATION}</h2>
+        </Col>
+      </Row>
       <QuizFilters defaultExplanationAuthor={defaultExplanationAuthor} onApply={handleApplyFilter} />
-      <Row>
+      <Row className="my-4">
         <Col>
           <Card className="shadow-sm">
             <Card.Body>

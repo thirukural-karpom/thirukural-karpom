@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
-import { CORRECT_KURAL_MESSAGE, EXPLANATION, NEXT, SUBMIT, WRONG_KURAL_MESSAGE } from "../constants"
+import { CORRECT_KURAL_MESSAGE, EXPLANATION, NEXT, SUBMIT, WRONG_KURAL_MESSAGE, FIND_KURAL } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import FindKuralQuizGenerator from "../service/FindKuralQuizGenerator"
 import QuizFilters from "./QuizFilters"
@@ -93,8 +93,13 @@ const FindKuralQuiz = () => {
 
   return (
     <Container>
+      <Row className="my-4">
+        <Col>
+          <h2>{FIND_KURAL}</h2>
+        </Col>
+      </Row>
       <QuizFilters defaultExplanationAuthor={defaultExplanationAuthor} onApply={handleApplyFilter} />
-      <Row>
+      <Row className="my-4">
         <Col>
           <Card className="shadow-sm">
             <Card.Body>

@@ -49,7 +49,7 @@ const QuizFilters = (props) => {
   }
 
   return (
-    <Row className="my-4">
+    <Row>
       <Col>
         <Accordion>
           <Accordion.Item eventKey="0">
