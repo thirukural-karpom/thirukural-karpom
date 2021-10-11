@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
-import { CORRECT_EXPLANATION_MESSAGE, FIND_EXPLANATION, KURAL, NEXT, SUBMIT, WRONG_EXPLANATION_MESSAGE } from "../constants"
+import { useTitle } from "react-use"
+import { APP_NAME, CORRECT_EXPLANATION_MESSAGE, FIND_EXPLANATION, KURAL, NEXT, SUBMIT, WRONG_EXPLANATION_MESSAGE } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import FindExplanationQuizGenerator from "../service/FindExplanationQuizGenerator"
 import QuizFilters from "./QuizFilters"
@@ -16,6 +17,8 @@ const FindExplanationQuiz = () => {
     adhikarams: [],
     explanationAuthor: defaultExplanationAuthor
   })
+
+  useTitle(`${FIND_EXPLANATION} | ${APP_NAME}`)
 
   useEffect(() => {
     console.log(">>>>> side-effect - quiz")

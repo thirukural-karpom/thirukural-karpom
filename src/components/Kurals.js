@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Badge, Button, Card, Col, Container, Form, Row, Tab, Tabs } from "react-bootstrap"
 import { Typeahead } from "react-bootstrap-typeahead"
-import { ADHIKARAM, KURAL, PAAL, SUBMIT } from "../constants"
+import { useTitle } from "react-use"
+import { ADHIKARAM, APP_NAME, KURAL, KURALS, PAAL, SUBMIT } from "../constants"
 import paals from "../data/paals.json"
 import { getAdhikarams, getKurals } from "../service/Thirukural"
 
@@ -10,6 +11,8 @@ const Kurals = () => {
   const [adhikarams, setAdhikarams] = useState([]);
   const [selectedAdhikaram, setSelectedAdhikaram] = useState(null)
   const [kurals, setKurals] = useState([])
+
+  useTitle(`${KURALS} | ${APP_NAME}`)
 
   useEffect(() => {
     console.log(">>>>> side-effect - selectedPaal")
