@@ -1,17 +1,16 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import ReactGA from "react-ga"
 import { BrowserRouter } from "react-router-dom"
+import Analytics from "react-router-ga"
 import App from "./components/App"
 import reportWebVitals from "./reportWebVitals"
 import "./scss/index.scss"
 
-// TODO: fix this before releasing
-// ReactGA.initialize("Your Unique ID");
-
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <Analytics id={process.env.REACT_APP_GOOGLE_ANALYTICS_ID}>
+      <App />
+    </Analytics>
   </BrowserRouter>,
   document.getElementById("root")
 );
