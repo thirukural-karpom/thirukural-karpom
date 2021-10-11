@@ -1,9 +1,13 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import ReactGA from "react-ga"
 import { BrowserRouter } from "react-router-dom"
 import App from "./components/App"
 import reportWebVitals from "./reportWebVitals"
 import "./scss/index.scss"
+
+// TODO: fix this before releasing
+// ReactGA.initialize("Your Unique ID");
 
 ReactDOM.render(
   <BrowserRouter>
