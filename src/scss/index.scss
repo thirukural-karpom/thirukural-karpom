@@ -1,6 +1,14 @@
-@import "~bootstrap";
-@import "~bootstrap-icons/font/bootstrap-icons.css";
-@import "~react-bootstrap-typeahead/css/Typeahead.css";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons";
+
+@import "~react-bootstrap-typeahead/css/Typeahead";
+button.rbt-close {
+  background-color: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
 // Common styles used across components
 
