@@ -23,7 +23,7 @@ const Header = () => {
             <Nav>
               <Nav.Link
                 target="_blank"
-                href="https://github.com/arunvelsriram/thirukural-karpom"
+                href="https://github.com/thirukural-karpom/thirukural-karpom"
                 className="py-0">
                 <i className="bi bi-github fs-4"></i>
               </Nav.Link>
