@@ -3,7 +3,8 @@ import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
-import { APP_NAME, FIND_EXPLANATION, FIND_KURAL, QUIZ } from "../constants"
+import { APP_NAME, CLASS_SUFFIX, FIND_EXPLANATION, FIND_KURAL, GENERAL } from "../constants"
+import { samacheerClasses } from "../helpers"
 
 const Header = () => {
 
@@ -14,10 +15,26 @@ const Header = () => {
           <Navbar.Brand href="/">{APP_NAME}</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
+            <Nav>
+              <NavDropdown title={FIND_KURAL}>
+                <NavDropdown.Item href="/quiz/findKural">{GENERAL}</NavDropdown.Item>
+                <NavDropdown.Divider />
+              </NavDropdown>
+            </Nav>
             <Nav className="me-auto">
-              <NavDropdown title={QUIZ}>
-                <NavDropdown.Item href="/quiz/findExplanation">{FIND_EXPLANATION}</NavDropdown.Item>
-                <NavDropdown.Item href="/quiz/findKural">{FIND_KURAL}</NavDropdown.Item>
+              <NavDropdown title={FIND_EXPLANATION}>
+                <NavDropdown.Item href="/quiz/findExplanation">{GENERAL}</NavDropdown.Item>
+                <NavDropdown.Divider />
+                {
+                  samacheerClasses()
+                    .map(samacheerClass =>
+                      <NavDropdown.Item
+                        key={samacheerClass}
+                        href={`/quiz/samacheerFindKural/${samacheerClass}`}>
+                        {`${samacheerClass}-${CLASS_SUFFIX}`}
+                      </NavDropdown.Item>
+                    )
+                }
               </NavDropdown>
             </Nav>
             <Nav>

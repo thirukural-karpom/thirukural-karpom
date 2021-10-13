@@ -1,8 +1,9 @@
 import React from "react"
-import { Switch, Route } from "react-router-dom"
-import Kurals from "./Kurals"
+import { Route, Switch } from "react-router-dom"
 import FindExplanationQuiz from "./FindExplanationQuiz"
 import FindKuralQuiz from "./FindKuralQuiz"
+import Kurals from "./Kurals"
+import SamacheerFindExplanationQuiz from "./SamacheerFindExplanationQuiz"
 
 const Main = () => (
   <main>
@@ -10,6 +11,7 @@ const Main = () => (
       <Route exact path="/" component={Kurals} />
       <Route exact path="/quiz/findExplanation" component={FindExplanationQuiz} />
       <Route exact path="/quiz/findKural" component={FindKuralQuiz} />
+      <Route exact path="/quiz/samacheerFindKural/:samacheerClass" component={SamacheerFindExplanationQuiz} />
     </Switch>
   </main>
 )

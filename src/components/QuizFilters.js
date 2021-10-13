@@ -6,10 +6,10 @@ import explanationAuthors from "../data/explanation-authors.json"
 import paals from "../data/paals.json"
 import { getAdhikarams, getAllAdhikarams } from "../service/Thirukural"
 
-const QuizFilters = (props) => {
+const QuizFilters = ({ defaultExplanationAuthor, onApply, hasAdhikaramSelector = true, hasPaalSelector = true }) => {
   const [selectedPaals, setSelectedPaals] = useState([])
   const [selectedAdhikarams, setSelectedAdhikarams] = useState([])
-  const [selectedExplanationAuthor, setSelectedExplanationAuthor] = useState([props.defaultExplanationAuthor])
+  const [selectedExplanationAuthor, setSelectedExplanationAuthor] = useState([defaultExplanationAuthor])
   const [adhikarams, setAdhikarams] = useState(null)
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const QuizFilters = (props) => {
 
   const handleOnSubmit = (e) => {
     console.log("handle filter form submit")
-    props.onApply({
+    onApply({
       paals: selectedPaals,
       adhikarams: selectedAdhikarams,
       explanationAuthor: selectedExplanationAuthor[0]
@@ -35,7 +35,7 @@ const QuizFilters = (props) => {
     console.log("handle clear filter")
     setSelectedPaals([])
     setSelectedAdhikarams([])
-    setSelectedExplanationAuthor([props.defaultExplanationAuthor])
+    setSelectedExplanationAuthor([defaultExplanationAuthor])
     setAdhikarams(null)
   }
 
@@ -56,29 +56,37 @@ const QuizFilters = (props) => {
             <Accordion.Header>{FILTERS}</Accordion.Header>
             <Accordion.Body>
               <Form onSubmit={handleOnSubmit}>
-                <Form.Group>
-                  <Form.Label>{PAAL}</Form.Label>
-                  <Typeahead
-                    id="paal-selector"
-                    options={paals}
-                    placeholder={PAAL}
-                    selected={selectedPaals}
-                    onChange={handlePaalChange}
-                    multiple
-                  />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>{ADHIKARAM}</Form.Label>
-                  <Typeahead
-                    id="adhikaram-selector"
-                    labelKey={(option) => `${option.no} - ${option.name}`}
-                    options={adhikarams ? adhikarams : []}
-                    placeholder={ADHIKARAM}
-                    selected={selectedAdhikarams}
-                    onChange={setSelectedAdhikarams}
-                    multiple
-                  />
-                </Form.Group>
+                {
+                  hasPaalSelector ?
+                    <Form.Group>
+                      <Form.Label>{PAAL}</Form.Label>
+                      <Typeahead
+                        id="paal-selector"
+                        options={paals}
+                        placeholder={PAAL}
+                        selected={selectedPaals}
+                        onChange={handlePaalChange}
+                        multiple
+                      />
+                    </Form.Group>
+                    : ""
+                }
+                {
+                  hasAdhikaramSelector ?
+                    <Form.Group>
+                      <Form.Label>{ADHIKARAM}</Form.Label>
+                      <Typeahead
+                        id="adhikaram-selector"
+                        labelKey={(option) => `${option.no} - ${option.name}`}
+                        options={adhikarams ? adhikarams : []}
+                        placeholder={ADHIKARAM}
+                        selected={selectedAdhikarams}
+                        onChange={setSelectedAdhikarams}
+                        multiple
+                      />
+                    </Form.Group>
+                    : ""
+                }
                 <Form.Group>
                   <Form.Label>{EXPLANATION}</Form.Label>
                   <Typeahead

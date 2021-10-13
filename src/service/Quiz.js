@@ -49,10 +49,28 @@ const getKural = (paals, adhikarams) => {
   return getRandomKuralFrom(filteredThirukurals)
 }
 
+const getKuralByKuralNumbers = (kuralNumbers) => {
+  const randomIdx = randomInteger(0, kuralNumbers.length - 1)
+  const randomKuralNo = kuralNumbers[randomIdx]
+  let kural = {}
+  let paal = ""
+  thirukurals.some(item => {
+    kural = item.kurals.find(kural =>
+      kural.kuralNo === randomKuralNo
+    )
+    if (kural) {
+      paal = item.paal
+      return true
+    }
+    return false
+  });
+  return { ...kural, paal }
+}
+
 const getExplanationByAuthor = (explanations, explanationAuthor) => (
   explanations
     .find((explanation) => explanation.author === explanationAuthor)
     .explanation
 )
 
-export { getKural, getRandomKurals, getRandomExplanations, getExplanationByAuthor }
+export { getKural, getRandomKurals, getRandomExplanations, getExplanationByAuthor, getKuralByKuralNumbers }
