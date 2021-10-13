@@ -6,7 +6,7 @@ import explanationAuthors from "../data/explanation-authors.json"
 import FindExplanationQuizGenerator from "../service/FindExplanationQuizGenerator"
 import QuizFilters from "./QuizFilters"
 
-const FindExplanationQuiz = () => {
+const CommonFindExplanationQuiz = () => {
   const [quiz, setQuiz] = useState(null)
   const [selectedExplanation, setSelectedExplanation] = useState(null)
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false)
@@ -142,4 +142,4 @@ const FindExplanationQuiz = () => {
   )
 }
 
-export default FindExplanationQuiz
+export default CommonFindExplanationQuiz

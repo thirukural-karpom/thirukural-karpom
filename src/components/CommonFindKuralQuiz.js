@@ -6,7 +6,7 @@ import explanationAuthors from "../data/explanation-authors.json"
 import FindKuralQuizGenerator from "../service/FindKuralQuizGenerator"
 import QuizFilters from "./QuizFilters"
 
-const FindKuralQuiz = () => {
+const CommonFindKuralQuiz = () => {
   const [quiz, setQuiz] = useState(null)
   const [selectedKural, setSelectedKural] = useState(null)
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false)
@@ -142,4 +142,4 @@ const FindKuralQuiz = () => {
   )
 }
 
-export default FindKuralQuiz
+export default CommonFindKuralQuiz
