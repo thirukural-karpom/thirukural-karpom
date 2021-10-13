@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
 import { useParams } from "react-router"
 import { useTitle } from "react-use"
-import { APP_NAME, CORRECT_EXPLANATION_MESSAGE, FIND_EXPLANATION, KURAL, NEXT, SUBMIT, WRONG_EXPLANATION_MESSAGE } from "../constants"
+import { APP_NAME, CLASS_SUFFIX, CORRECT_EXPLANATION_MESSAGE, FIND_EXPLANATION, KURAL, NEXT, SUBMIT, WRONG_EXPLANATION_MESSAGE } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import samacheerKurals from "../data/samacheer-kurals.json"
 import FindExplanationQuizGenerator from "../service/FindExplanationQuizGenerator"
@@ -15,14 +15,15 @@ const SamacheerFindExplanationQuiz = () => {
   const [showResult, setShowResult] = useState(false)
   const defaultExplanationAuthor = explanationAuthors[0]
   const [filters, setFilters] = useState({ explanationAuthor: defaultExplanationAuthor })
-  const { samacheerClass } = useParams()
+  const { classNo } = useParams()
+  const samacheerClass = `${classNo}-${CLASS_SUFFIX}`
 
-  useTitle(`${FIND_EXPLANATION} | ${APP_NAME}`)
+  useTitle(`${samacheerClass} | ${FIND_EXPLANATION} | ${APP_NAME}`)
 
   useEffect(() => {
     console.log(">>>>> side-effect - quiz")
     if (!quiz) {
-      const kuralNumbers = samacheerKurals[samacheerClass]
+      const kuralNumbers = samacheerKurals[classNo]
       const { explanationAuthor } = filters
       const quizGenerator = new FindExplanationQuizGenerator()
       const { kural, kuralNo } = quizGenerator.getKuralByKuralNumbers(kuralNumbers, explanationAuthor)
@@ -35,7 +36,7 @@ const SamacheerFindExplanationQuiz = () => {
       setSelectedExplanation(explanations[0].explanation)
     }
     console.log("<<<<< side-effect - quiz")
-  }, [quiz, filters, samacheerClass])
+  }, [quiz, filters, classNo])
 
   const handleOnSubmit = (e) => {
     const correctExplanation = quiz.explanations.find((item) => item.isCorrect).explanation
@@ -98,7 +99,7 @@ const SamacheerFindExplanationQuiz = () => {
     <Container>
       <Row className="my-4">
         <Col>
-          <h2>{FIND_EXPLANATION}</h2>
+          <h2>{`${samacheerClass} ${FIND_EXPLANATION}`}</h2>
         </Col>
       </Row>
       <QuizFilters

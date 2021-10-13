@@ -9,10 +9,10 @@ const shuffleItems = (array) => {
     .map(({ value }) => value)
 }
 
-const samacheerClasses = () => {
+const samacheerClassNumbers = () => {
   return Array(TO_SAMACHEER_CLASS - FROM_SAMACHEER_CLASS + 1)
     .fill(FROM_SAMACHEER_CLASS)
     .map((start, idx) => start + idx)
 }
 
-export { randomInteger, shuffleItems, samacheerClasses }
+export { randomInteger, shuffleItems, samacheerClassNumbers }

@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
 import { APP_NAME, CLASS_SUFFIX, FIND_EXPLANATION, FIND_KURAL, GENERAL } from "../constants"
-import { samacheerClasses } from "../helpers"
+import { samacheerClassNumbers } from "../helpers"
 
 const Header = () => {
 
@@ -26,12 +26,12 @@ const Header = () => {
                 <NavDropdown.Item href="/quiz/findExplanation">{GENERAL}</NavDropdown.Item>
                 <NavDropdown.Divider />
                 {
-                  samacheerClasses()
-                    .map(samacheerClass =>
+                  samacheerClassNumbers()
+                    .map(classNo =>
                       <NavDropdown.Item
-                        key={samacheerClass}
-                        href={`/quiz/samacheerFindKural/${samacheerClass}`}>
-                        {`${samacheerClass}-${CLASS_SUFFIX}`}
+                        key={classNo}
+                        href={`/quiz/samacheerFindKural/${classNo}`}>
+                        {`${classNo}-${CLASS_SUFFIX}`}
                       </NavDropdown.Item>
                     )
                 }

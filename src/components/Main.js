@@ -11,7 +11,7 @@ const Main = () => (
       <Route exact path="/" component={Kurals} />
       <Route exact path="/quiz/findExplanation" component={FindExplanationQuiz} />
       <Route exact path="/quiz/findKural" component={FindKuralQuiz} />
-      <Route exact path="/quiz/samacheerFindKural/:samacheerClass" component={SamacheerFindExplanationQuiz} />
+      <Route exact path="/quiz/samacheerFindKural/:classNo" component={SamacheerFindExplanationQuiz} />
     </Switch>
   </main>
 )
