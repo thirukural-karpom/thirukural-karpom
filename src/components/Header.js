@@ -8,6 +8,17 @@ import { samacheerClassNumbers } from "../helpers"
 
 const Header = () => {
 
+  const renderSamacheerClasses = (route) => (
+    samacheerClassNumbers()
+      .map(classNo =>
+        <NavDropdown.Item
+          key={classNo}
+          href={`${route}/${classNo}`}>
+          {`${classNo}-${CLASS_SUFFIX}`}
+        </NavDropdown.Item>
+      )
+  )
+
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
@@ -19,22 +30,14 @@ const Header = () => {
               <NavDropdown title={FIND_KURAL}>
                 <NavDropdown.Item href="/quiz/findKural">{GENERAL}</NavDropdown.Item>
                 <NavDropdown.Divider />
+                {renderSamacheerClasses("/quiz/samacheerFindKural")}
               </NavDropdown>
             </Nav>
             <Nav className="me-auto">
               <NavDropdown title={FIND_EXPLANATION}>
                 <NavDropdown.Item href="/quiz/findExplanation">{GENERAL}</NavDropdown.Item>
                 <NavDropdown.Divider />
-                {
-                  samacheerClassNumbers()
-                    .map(classNo =>
-                      <NavDropdown.Item
-                        key={classNo}
-                        href={`/quiz/samacheerFindKural/${classNo}`}>
-                        {`${classNo}-${CLASS_SUFFIX}`}
-                      </NavDropdown.Item>
-                    )
-                }
+                {renderSamacheerClasses("/quiz/samacheerFindExplanation")}
               </NavDropdown>
             </Nav>
             <Nav>

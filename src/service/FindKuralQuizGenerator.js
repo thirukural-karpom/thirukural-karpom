@@ -1,5 +1,5 @@
 import { shuffleItems } from "../helpers"
-import { getExplanationByAuthor, getKural, getRandomKurals } from "./Quiz"
+import { getExplanationByAuthor, getKural, getKuralByKuralNumbers, getRandomKurals } from "./Quiz"
 
 class FindKuralQuizGenerator {
   constructor() {
@@ -8,6 +8,14 @@ class FindKuralQuizGenerator {
 
   getExplanation(paals, adhikarams, explanationAuthor) {
     const { kuralNo, kural, paal, adhikaram, explanations } = getKural(paals, adhikarams)
+    const explanation = getExplanationByAuthor(explanations, explanationAuthor)
+    this.answerKural = { kural, kuralNo, paal, adhikaram }
+    console.log(`answer kural: ${JSON.stringify(this.answerKural)}`)
+    return explanation
+  }
+
+  getExplanationByKuralNumbers(kuralNumbers, explanationAuthor) {
+    const { kuralNo, kural, paal, adhikaram, explanations } = getKuralByKuralNumbers(kuralNumbers)
     const explanation = getExplanationByAuthor(explanations, explanationAuthor)
     this.answerKural = { kural, kuralNo, paal, adhikaram }
     console.log(`answer kural: ${JSON.stringify(this.answerKural)}`)
