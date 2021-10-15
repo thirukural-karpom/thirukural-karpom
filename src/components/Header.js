@@ -3,21 +3,28 @@ import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
-import { APP_NAME, CLASS_SUFFIX, FIND_EXPLANATION, FIND_KURAL, GENERAL } from "../constants"
+import { APP_NAME, CLASS_SUFFIX, FIND_EXPLANATION, FIND_KURAL, GENERAL, SAMACHEER_EDUCATION } from "../constants"
 import { getClassNumbers } from "../service/Samacheer"
 
 const Header = () => {
 
-  const renderSamacheerClasses = (route) => (
-    getClassNumbers()
-      .map(classNo =>
-        <NavDropdown.Item
-          key={classNo}
-          href={`${route}/${classNo}`}>
-          {`${classNo}-${CLASS_SUFFIX}`}
-        </NavDropdown.Item>
-      )
-  )
+  const renderSamacheerClasses = (route) => {
+    return (
+      <>
+        <NavDropdown.Header>{SAMACHEER_EDUCATION}</NavDropdown.Header>
+        {
+          getClassNumbers()
+            .map(classNo =>
+              <NavDropdown.Item
+                key={classNo}
+                href={`${route}/${classNo}`}>
+                {`${classNo}-${CLASS_SUFFIX}`}
+              </NavDropdown.Item>
+            )
+        }
+      </>
+    )
+  }
 
   return (
     <header>
