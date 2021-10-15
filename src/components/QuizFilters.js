@@ -16,12 +16,12 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
   const [adhikarams, setAdhikarams] = useState(null)
 
   useEffect(() => {
-    log(">>>>> side-effect: adhikarams")
+    log(">>>>> side-effect - quiz filters")
     if (!adhikarams) {
       const allAdhikarams = getAllAdhikarams()
       setAdhikarams(allAdhikarams)
     }
-    log("<<<<< side-effect: adhikarams")
+    log("<<<<< side-effect - quiz filters")
   }, [adhikarams])
 
   const handleOnSubmit = (e) => {

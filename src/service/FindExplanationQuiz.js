@@ -1,17 +1,5 @@
 import { log, shuffleItems } from "../helpers"
-import { getExplanationByAuthor, getKural, getKuralByKuralNumbers, getRandomExplanations } from "./Quiz"
-
-const getAnswerKural = (paals, adhikarams, explanationAuthor) => {
-  const { kuralNo, kural, paal, explanations } = getKural(paals, adhikarams)
-  const explanation = getExplanationByAuthor(explanations, explanationAuthor)
-  return { kuralNo, kural, paal, explanation }
-}
-
-const getAnswerKuralByKuralNumbers = (kuralNumbers, explanationAuthor) => {
-  const { kuralNo, kural, paal, explanations } = getKuralByKuralNumbers(kuralNumbers)
-  const explanation = getExplanationByAuthor(explanations, explanationAuthor)
-  return { kuralNo, kural, paal, explanation }
-}
+import { getRandomExplanations } from "./Quiz"
 
 const getExplanations = (answerKural, explanationAuthor) => {
   const { kuralNo, paal, explanation } = answerKural
@@ -23,4 +11,4 @@ const getExplanations = (answerKural, explanationAuthor) => {
   return explanations
 }
 
-export { getAnswerKural, getExplanations, getAnswerKuralByKuralNumbers }
+export { getExplanations }

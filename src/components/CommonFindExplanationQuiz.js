@@ -3,7 +3,8 @@ import { useTitle } from "react-use"
 import { APP_NAME, FIND_EXPLANATION } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import { log } from "../helpers"
-import { getAnswerKural, getExplanations } from "../service/FindExplanationQuiz"
+import { getExplanations } from "../service/FindExplanationQuiz"
+import { getAnswerKural } from "../service/Quiz"
 import FindExplanationQuiz from "./FindExplanationQuiz"
 
 const CommonFindExplanationQuiz = () => {
@@ -18,20 +19,20 @@ const CommonFindExplanationQuiz = () => {
   useTitle(`${FIND_EXPLANATION} | ${APP_NAME}`)
 
   useEffect(() => {
-    log(">>>>> side-effect - quiz")
+    log(">>>>> side-effect")
     if (!quiz) {
       log(`filters: ${JSON.stringify(filters)}`)
       const { paals, adhikarams, explanationAuthor } = filters
       const answerKural = getAnswerKural(paals, adhikarams.map(adhikaram => adhikaram.name), explanationAuthor)
-      log(`random kural: ${answerKural}`)
+      log(`answer kural: ${answerKural}`)
       const explanations = getExplanations(answerKural, explanationAuthor)
-      log(`random explanations: ${JSON.stringify(explanations)}`)
+      log(`explanations used for choices: ${JSON.stringify(explanations)}`)
       const { kuralNo, kural } = answerKural
       const quiz = { kuralNo, kural, explanations }
       log(`quiz: ${JSON.stringify(quiz)}`)
       setQuiz(quiz)
     }
-    log("<<<<< side-effect - quiz")
+    log("<<<<< side-effect")
   }, [quiz, filters])
 
   const handleFilterChange = (filters) => {

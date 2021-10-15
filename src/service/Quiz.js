@@ -73,4 +73,16 @@ const getExplanationByAuthor = (explanations, explanationAuthor) => (
     .explanation
 )
 
-export { getKural, getRandomKurals, getRandomExplanations, getExplanationByAuthor, getKuralByKuralNumbers }
+const getAnswerKural = (paals, adhikarams, explanationAuthor) => {
+  const { kuralNo, kural, paal, explanations } = getKural(paals, adhikarams)
+  const explanation = getExplanationByAuthor(explanations, explanationAuthor)
+  return { kuralNo, kural, paal, explanation }
+}
+
+const getAnswerKuralByKuralNumbers = (kuralNumbers, explanationAuthor) => {
+  const { kuralNo, kural, paal, explanations } = getKuralByKuralNumbers(kuralNumbers)
+  const explanation = getExplanationByAuthor(explanations, explanationAuthor)
+  return { kuralNo, kural, paal, explanation }
+}
+
+export { getRandomKurals, getRandomExplanations, getAnswerKural, getAnswerKuralByKuralNumbers }

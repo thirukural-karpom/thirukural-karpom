@@ -16,7 +16,7 @@ const Kurals = () => {
   useTitle(`${KURALS} | ${APP_NAME}`)
 
   useEffect(() => {
-    log(">>>>> side-effect - selectedPaal")
+    log(">>>>> side-effect")
     if (!selectedPaal) {
       const paal = paals[0]
       const adhikarams = getAdhikarams(paal)
@@ -30,7 +30,7 @@ const Kurals = () => {
       setSelectedAdhikaram([adhikaram])
       setKurals(kurals)
     }
-    log("<<<<< side-effect - selectedPaal")
+    log("<<<<< side-effect")
   }, [selectedPaal])
 
   const handleSubmit = (event) => {
