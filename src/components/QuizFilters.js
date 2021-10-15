@@ -6,9 +6,10 @@ import explanationAuthors from "../data/explanation-authors.json"
 import paals from "../data/paals.json"
 import { getAdhikarams, getAllAdhikarams } from "../service/Thirukural"
 
-const QuizFilters = ({ defaultExplanationAuthor, onApply, hasAdhikaramSelector = true, hasPaalSelector = true }) => {
+const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = true }) => {
   const [selectedPaals, setSelectedPaals] = useState([])
   const [selectedAdhikarams, setSelectedAdhikarams] = useState([])
+  const defaultExplanationAuthor = explanationAuthors[0]
   const [selectedExplanationAuthor, setSelectedExplanationAuthor] = useState([defaultExplanationAuthor])
   const [adhikarams, setAdhikarams] = useState(null)
 
