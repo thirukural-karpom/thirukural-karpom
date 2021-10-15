@@ -1,4 +1,4 @@
-import { shuffleItems } from "../helpers"
+import { log, shuffleItems } from "../helpers"
 import { getExplanationByAuthor, getKural, getKuralByKuralNumbers, getRandomKurals } from "./Quiz"
 
 class FindKuralQuizGenerator {
@@ -10,7 +10,7 @@ class FindKuralQuizGenerator {
     const { kuralNo, kural, paal, adhikaram, explanations } = getKural(paals, adhikarams)
     const explanation = getExplanationByAuthor(explanations, explanationAuthor)
     this.answerKural = { kural, kuralNo, paal, adhikaram }
-    console.log(`answer kural: ${JSON.stringify(this.answerKural)}`)
+    log(`answer kural: ${JSON.stringify(this.answerKural)}`)
     return explanation
   }
 
@@ -18,7 +18,7 @@ class FindKuralQuizGenerator {
     const { kuralNo, kural, paal, adhikaram, explanations } = getKuralByKuralNumbers(kuralNumbers)
     const explanation = getExplanationByAuthor(explanations, explanationAuthor)
     this.answerKural = { kural, kuralNo, paal, adhikaram }
-    console.log(`answer kural: ${JSON.stringify(this.answerKural)}`)
+    log(`answer kural: ${JSON.stringify(this.answerKural)}`)
     return explanation
   }
 
@@ -28,7 +28,7 @@ class FindKuralQuizGenerator {
       .map(({ kural }) => ({ kural, isCorrect: false }))
     const correctKural = { kural, isCorrect: true }
     const kurals = shuffleItems([...inCorrectKurals, correctKural])
-    console.log(`shuffled kurals: ${JSON.stringify(kurals)}`)
+    log(`shuffled kurals: ${JSON.stringify(kurals)}`)
     return kurals
   }
 }

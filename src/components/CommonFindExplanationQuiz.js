@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useTitle } from "react-use"
 import { APP_NAME, FIND_EXPLANATION } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
+import { log } from "../helpers"
 import FindExplanationQuizGenerator from "../service/FindExplanationQuizGenerator"
 import FindExplanationQuiz from "./FindExplanationQuiz"
 
@@ -17,20 +18,20 @@ const CommonFindExplanationQuiz = () => {
   useTitle(`${FIND_EXPLANATION} | ${APP_NAME}`)
 
   useEffect(() => {
-    console.log(">>>>> side-effect - quiz")
+    log(">>>>> side-effect - quiz")
     if (!quiz) {
-      console.log(`filters: ${JSON.stringify(filters)}`)
+      log(`filters: ${JSON.stringify(filters)}`)
       const { paals, adhikarams, explanationAuthor } = filters
       const quizGenerator = new FindExplanationQuizGenerator()
       const { kural, kuralNo } = quizGenerator.getKural(paals, adhikarams.map(adhikaram => adhikaram.name), explanationAuthor)
-      console.log(`random kural: ${kuralNo} - ${kural}`)
+      log(`random kural: ${kuralNo} - ${kural}`)
       const explanations = quizGenerator.getExplanations()
-      console.log(`random explanations: ${JSON.stringify(explanations)}`)
+      log(`random explanations: ${JSON.stringify(explanations)}`)
       const quiz = { kuralNo, kural, explanations }
-      console.log(`quiz: ${JSON.stringify(quiz)}`)
+      log(`quiz: ${JSON.stringify(quiz)}`)
       setQuiz(quiz)
     }
-    console.log("<<<<< side-effect - quiz")
+    log("<<<<< side-effect - quiz")
   }, [quiz, filters])
 
   const handleFilterChange = (filters) => {

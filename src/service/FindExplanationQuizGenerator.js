@@ -1,4 +1,4 @@
-import { shuffleItems } from "../helpers"
+import { log, shuffleItems } from "../helpers"
 import { getExplanationByAuthor, getKural, getKuralByKuralNumbers, getRandomExplanations } from "./Quiz"
 
 class FindExplanationQuizGenerator {
@@ -26,7 +26,7 @@ class FindExplanationQuizGenerator {
       .map((explanation) => ({ explanation, isCorrect: false }))
     const correctExplanation = { explanation, isCorrect: true }
     const explanations = shuffleItems([...incorrectExplanations, correctExplanation])
-    console.log(`shuffled explanations: ${JSON.stringify(explanations)}`)
+    log(`shuffled explanations: ${JSON.stringify(explanations)}`)
     return explanations
   }
 }

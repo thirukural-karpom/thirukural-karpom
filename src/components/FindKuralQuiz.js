@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
 import { CORRECT_KURAL_MESSAGE, EXPLANATION, NEXT, SUBMIT, WRONG_KURAL_MESSAGE } from "../constants"
+import { log } from "../helpers"
 import QuizFilters from "./QuizFilters"
 
 const FindKuralQuiz = ({ heading, quiz, filterProps, onFilterChange, onNextQuiz }) => {
@@ -10,7 +11,7 @@ const FindKuralQuiz = ({ heading, quiz, filterProps, onFilterChange, onNextQuiz 
 
   const handleOnSubmit = (e) => {
     const correctKural = quiz.kurals.find((item) => item.isCorrect).kural
-    console.log(`handle form submit,
+    log(`handle form submit,
       selectedKural: ${JSON.stringify(selectedKural)}
       correctKural: ${JSON.stringify(correctKural)}`)
     setIsCorrectAnswer(selectedKural === correctKural)
@@ -20,7 +21,7 @@ const FindKuralQuiz = ({ heading, quiz, filterProps, onFilterChange, onNextQuiz 
   }
 
   const handlNextQuiz = (e) => {
-    console.log("handle next quiz")
+    log("handle next quiz")
     setShowResult(false)
     setIsCorrectAnswer(false)
     setSelectedKural(null)
@@ -28,7 +29,7 @@ const FindKuralQuiz = ({ heading, quiz, filterProps, onFilterChange, onNextQuiz 
   }
 
   const handleApplyFilter = (data) => {
-    console.log(`handle apply filter callback, data: ${JSON.stringify(data)}`)
+    log(`handle apply filter callback, data: ${JSON.stringify(data)}`)
     setShowResult(false)
     setIsCorrectAnswer(false)
     setSelectedKural(null)

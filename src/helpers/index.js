@@ -15,4 +15,10 @@ const samacheerClassNumbers = () => {
     .map((start, idx) => start + idx)
 }
 
-export { randomInteger, shuffleItems, samacheerClassNumbers }
+const log = (...args) => {
+  if (process.env.NODE_ENV !== "production") {
+    console.log(...args)
+  }
+}
+
+export { randomInteger, shuffleItems, samacheerClassNumbers, log }

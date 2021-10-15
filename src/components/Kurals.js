@@ -4,6 +4,7 @@ import { Typeahead } from "react-bootstrap-typeahead"
 import { useTitle } from "react-use"
 import { ADHIKARAM, APP_NAME, KURAL, KURALS, PAAL, SUBMIT } from "../constants"
 import paals from "../data/paals.json"
+import { log } from "../helpers"
 import { getAdhikarams, getKurals } from "../service/Thirukural"
 
 const Kurals = () => {
@@ -15,40 +16,40 @@ const Kurals = () => {
   useTitle(`${KURALS} | ${APP_NAME}`)
 
   useEffect(() => {
-    console.log(">>>>> side-effect - selectedPaal")
+    log(">>>>> side-effect - selectedPaal")
     if (!selectedPaal) {
       const paal = paals[0]
       const adhikarams = getAdhikarams(paal)
-      console.log(`adhikarams for ${paal}: ${adhikarams}`)
+      log(`adhikarams for ${paal}: ${adhikarams}`)
       const adhikaram = adhikarams[0]
       const kurals = getKurals(adhikaram.no)
-      console.log(`kurals for ${adhikaram.no}-${adhikaram.name}: ${JSON.stringify(kurals)}`)
+      log(`kurals for ${adhikaram.no}-${adhikaram.name}: ${JSON.stringify(kurals)}`)
 
       setSelectedPaal([paal])
       setAdhikarams(adhikarams)
       setSelectedAdhikaram([adhikaram])
       setKurals(kurals)
     }
-    console.log("<<<<< side-effect - selectedPaal")
+    log("<<<<< side-effect - selectedPaal")
   }, [selectedPaal])
 
   const handleSubmit = (event) => {
-    console.log("handle form submit")
+    log("handle form submit")
     const adhikaram = selectedAdhikaram[0]
-    console.log(`get kurals for adhikaram: ${adhikaram}`)
+    log(`get kurals for adhikaram: ${adhikaram}`)
     const kurals = getKurals(adhikaram.no)
-    console.log(`kurals: ${JSON.stringify(kurals)}`)
+    log(`kurals: ${JSON.stringify(kurals)}`)
     setKurals(kurals)
     event.preventDefault()
   }
 
   const handlePaalChange = (values) => {
-    console.log(`handle paal change, values: ${values}`)
+    log(`handle paal change, values: ${values}`)
     setSelectedPaal(values)
     if (values.length) {
       const [paal] = values
       const adhikarams = getAdhikarams(paal)
-      console.log(`adhikarams for ${paal}: ${adhikarams}`)
+      log(`adhikarams for ${paal}: ${adhikarams}`)
       setAdhikarams(adhikarams)
       setSelectedAdhikaram([adhikarams[0]])
     }

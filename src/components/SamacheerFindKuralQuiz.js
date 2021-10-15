@@ -4,6 +4,7 @@ import { useTitle } from "react-use"
 import { APP_NAME, CLASS_SUFFIX, FIND_KURAL } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import samacheerKurals from "../data/samacheer-kurals.json"
+import { log } from "../helpers"
 import FindKuralQuizGenerator from "../service/FindKuralQuizGenerator"
 import FindKuralQuiz from "./FindKuralQuiz"
 
@@ -17,20 +18,20 @@ const SamacheerFindKuralQuiz = () => {
   useTitle(`${FIND_KURAL} | ${APP_NAME}`)
 
   useEffect(() => {
-    console.log(">>>>> side-effect - quiz")
+    log(">>>>> side-effect - quiz")
     if (!quiz) {
       const kuralNumbers = samacheerKurals[classNo]
       const { explanationAuthor } = filters
       const quizGenerator = new FindKuralQuizGenerator()
       const explanation = quizGenerator.getExplanationByKuralNumbers(kuralNumbers, explanationAuthor)
-      console.log(`random explanation: ${explanation}`)
+      log(`random explanation: ${explanation}`)
       const kurals = quizGenerator.getKurals()
-      console.log(`random kurals: ${kurals}`)
+      log(`random kurals: ${kurals}`)
       const quiz = { kurals, explanation }
-      console.log(`quiz: ${JSON.stringify(quiz)}`)
+      log(`quiz: ${JSON.stringify(quiz)}`)
       setQuiz(quiz)
     }
-    console.log("<<<<< side-effect - quiz")
+    log("<<<<< side-effect - quiz")
   }, [quiz, filters, classNo])
 
   const handleFilterChange = (filters) => {

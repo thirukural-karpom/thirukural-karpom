@@ -4,6 +4,7 @@ import { Typeahead } from "react-bootstrap-typeahead"
 import { ADHIKARAM, CLEAR, EXPLANATION, FILTERS, PAAL, SUBMIT } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import paals from "../data/paals.json"
+import { log } from "../helpers"
 import { getAdhikarams, getAllAdhikarams } from "../service/Thirukural"
 
 const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = true }) => {
@@ -14,16 +15,16 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
   const [adhikarams, setAdhikarams] = useState(null)
 
   useEffect(() => {
-    console.log(">>>>> side-effect: adhikarams")
+    log(">>>>> side-effect: adhikarams")
     if (!adhikarams) {
       const allAdhikarams = getAllAdhikarams()
       setAdhikarams(allAdhikarams)
     }
-    console.log("<<<<< side-effect: adhikarams")
+    log("<<<<< side-effect: adhikarams")
   }, [adhikarams])
 
   const handleOnSubmit = (e) => {
-    console.log("handle filter form submit")
+    log("handle filter form submit")
     onApply({
       paals: selectedPaals,
       adhikarams: selectedAdhikarams,
@@ -33,7 +34,7 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
   }
 
   const handleClear = () => {
-    console.log("handle clear filter")
+    log("handle clear filter")
     setSelectedPaals([])
     setSelectedAdhikarams([])
     setSelectedExplanationAuthor([defaultExplanationAuthor])
@@ -41,9 +42,9 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
   }
 
   const handlePaalChange = (paals) => {
-    console.log(`handle paal change in filter, paals: ${paals}`)
+    log(`handle paal change in filter, paals: ${paals}`)
     const adhikarams = paals.reduce((accumulator, paal) => accumulator.concat(...getAdhikarams(paal)), [])
-    console.log(`handle paal change in filter, adhikarams: ${JSON.stringify(adhikarams)}`)
+    log(`handle paal change in filter, adhikarams: ${JSON.stringify(adhikarams)}`)
     setSelectedPaals(paals)
     setAdhikarams(adhikarams.length ? adhikarams : null)
     setSelectedAdhikarams([])

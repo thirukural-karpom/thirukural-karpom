@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
 import { CORRECT_EXPLANATION_MESSAGE, KURAL, NEXT, SUBMIT, WRONG_EXPLANATION_MESSAGE } from "../constants"
+import { log } from "../helpers"
 import QuizFilters from "./QuizFilters"
 
 const FindExplanationQuiz = ({ heading, quiz, filterProps, onFilterChange, onNextQuiz }) => {
@@ -10,7 +11,7 @@ const FindExplanationQuiz = ({ heading, quiz, filterProps, onFilterChange, onNex
 
   const handleOnSubmit = (e) => {
     const correctExplanation = quiz.explanations.find((item) => item.isCorrect).explanation
-    console.log(`handle form submit,
+    log(`handle form submit,
       selectedExplanation: ${JSON.stringify(selectedExplanation)}
       correctExplanation: ${JSON.stringify(correctExplanation)}`)
     setIsCorrectAnswer(selectedExplanation === correctExplanation)
@@ -19,7 +20,7 @@ const FindExplanationQuiz = ({ heading, quiz, filterProps, onFilterChange, onNex
   }
 
   const handlNextQuiz = (e) => {
-    console.log("handle next quiz")
+    log("handle next quiz")
     setShowResult(false)
     setIsCorrectAnswer(false)
     setSelectedExplanation(null)
@@ -28,7 +29,7 @@ const FindExplanationQuiz = ({ heading, quiz, filterProps, onFilterChange, onNex
   }
 
   const handleApplyFilter = (data) => {
-    console.log(`handle apply filter callback, data: ${JSON.stringify(data)}`)
+    log(`handle apply filter callback, data: ${JSON.stringify(data)}`)
     setShowResult(false)
     setIsCorrectAnswer(false)
     setSelectedExplanation(null)
