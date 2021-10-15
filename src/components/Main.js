@@ -10,10 +10,10 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Kurals} />
-      <Route exact path="/quiz/findExplanation" component={CommonFindExplanationQuiz} />
-      <Route exact path="/quiz/findKural" component={CommonFindKuralQuiz} />
-      <Route exact path="/quiz/samacheerFindExplanation/:classNo" component={SamacheerFindExplanationQuiz} />
-      <Route exact path="/quiz/samacheerFindKural/:classNo" component={SamacheerFindKuralQuiz} />
+      <Route exact path="/quiz/find-explanation" component={CommonFindExplanationQuiz} />
+      <Route exact path="/quiz/find-kural" component={CommonFindKuralQuiz} />
+      <Route exact path="/quiz/samacheer-find-explanation/:classNo" component={SamacheerFindExplanationQuiz} />
+      <Route exact path="/quiz/samacheer-find-kural/:classNo" component={SamacheerFindKuralQuiz} />
     </Switch>
   </main>
 )

@@ -28,16 +28,16 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <NavDropdown title={FIND_KURAL}>
-                <NavDropdown.Item href="/quiz/findKural">{GENERAL}</NavDropdown.Item>
+                <NavDropdown.Item href="/quiz/find-kural">{GENERAL}</NavDropdown.Item>
                 <NavDropdown.Divider />
-                {renderSamacheerClasses("/quiz/samacheerFindKural")}
+                {renderSamacheerClasses("/quiz/samacheer-find-kural")}
               </NavDropdown>
             </Nav>
             <Nav className="me-auto">
               <NavDropdown title={FIND_EXPLANATION}>
-                <NavDropdown.Item href="/quiz/findExplanation">{GENERAL}</NavDropdown.Item>
+                <NavDropdown.Item href="/quiz/find-explanation">{GENERAL}</NavDropdown.Item>
                 <NavDropdown.Divider />
-                {renderSamacheerClasses("/quiz/samacheerFindExplanation")}
+                {renderSamacheerClasses("/quiz/samacheer-find-explanation")}
               </NavDropdown>
             </Nav>
             <Nav>
