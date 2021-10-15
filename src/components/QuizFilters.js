@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
 import { Accordion, Button, Col, Form, Row } from "react-bootstrap"
 import { Typeahead } from "react-bootstrap-typeahead"
-import { ADHIKARAM, CLEAR, EXPLANATION, FILTERS, PAAL, SUBMIT } from "../constants"
+import { ADHIKARAM, CLEAR, EXPLANATION, FILTERS, PAAL, SUBMIT, TERM } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import paals from "../data/paals.json"
 import { log } from "../helpers"
 import { getAdhikarams, getAllAdhikarams } from "../service/Thirukural"
 
-const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = true }) => {
+const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = true, hasTermSelector = false }) => {
   const [selectedPaals, setSelectedPaals] = useState([])
   const [selectedAdhikarams, setSelectedAdhikarams] = useState([])
+  const [selectedTerms, setSelectedTerms] = useState([])
   const defaultExplanationAuthor = explanationAuthors[0]
   const [selectedExplanationAuthor, setSelectedExplanationAuthor] = useState([defaultExplanationAuthor])
   const [adhikarams, setAdhikarams] = useState(null)
@@ -28,6 +29,7 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
     onApply({
       paals: selectedPaals,
       adhikarams: selectedAdhikarams,
+      terms: selectedTerms,
       explanationAuthor: selectedExplanationAuthor[0]
     })
     e.preventDefault()
@@ -37,6 +39,7 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
     log("handle clear filter")
     setSelectedPaals([])
     setSelectedAdhikarams([])
+    setSelectedTerms([])
     setSelectedExplanationAuthor([defaultExplanationAuthor])
     setAdhikarams(null)
   }
@@ -84,6 +87,22 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
                         placeholder={ADHIKARAM}
                         selected={selectedAdhikarams}
                         onChange={setSelectedAdhikarams}
+                        multiple
+                      />
+                    </Form.Group>
+                    : ""
+                }
+                {
+                  hasTermSelector ?
+                    <Form.Group>
+                      <Form.Label>{TERM}</Form.Label>
+                      <Typeahead
+                        id="term-selector"
+                        labelKey={(option) => `${TERM} ${option}`}
+                        options={[1, 2, 3].map(option => option.toString())}
+                        placeholder={TERM}
+                        selected={selectedTerms}
+                        onChange={setSelectedTerms}
                         multiple
                       />
                     </Form.Group>

@@ -5,13 +5,13 @@ import { APP_NAME, CLASS_SUFFIX, FIND_KURAL } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import { log } from "../helpers"
 import FindKuralQuizGenerator from "../service/FindKuralQuizGenerator"
-import { getAllKuralNumbers } from "../service/Samacheer"
+import { getKuralNumbers } from "../service/Samacheer"
 import FindKuralQuiz from "./FindKuralQuiz"
 
 const SamacheerFindKuralQuiz = () => {
   const [quiz, setQuiz] = useState(null)
   const defaultExplanationAuthor = explanationAuthors[0]
-  const [filters, setFilters] = useState({ explanationAuthor: defaultExplanationAuthor })
+  const [filters, setFilters] = useState({ terms: [], explanationAuthor: defaultExplanationAuthor })
   const { classNo } = useParams()
   const samacheerClass = `${classNo}-${CLASS_SUFFIX}`
 
@@ -20,8 +20,9 @@ const SamacheerFindKuralQuiz = () => {
   useEffect(() => {
     log(">>>>> side-effect - quiz")
     if (!quiz) {
-      const kuralNumbers = getAllKuralNumbers(classNo)
-      const { explanationAuthor } = filters
+      const { terms, explanationAuthor } = filters
+      const kuralNumbers = getKuralNumbers(classNo, terms)
+      log(`kural numbers for class:${classNo} and terms: ${terms} are ${kuralNumbers}`)
       const quizGenerator = new FindKuralQuizGenerator()
       const explanation = quizGenerator.getExplanationByKuralNumbers(kuralNumbers, explanationAuthor)
       log(`random explanation: ${explanation}`)
@@ -49,7 +50,11 @@ const SamacheerFindKuralQuiz = () => {
       quiz={quiz}
       onFilterChange={handleFilterChange}
       onNextQuiz={handleNextQuiz}
-      filterProps={{ hasPaalSelector: false, hasAdhikaramSelector: false }}
+      filterProps={{
+        hasPaalSelector: false,
+        hasAdhikaramSelector: false,
+        hasTermSelector: true
+      }}
     />
   )
 }
