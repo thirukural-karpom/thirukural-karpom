@@ -3,7 +3,7 @@ import { useTitle } from "react-use"
 import { APP_NAME, FIND_EXPLANATION } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import { log } from "../helpers"
-import FindExplanationQuizGenerator from "../service/FindExplanationQuizGenerator"
+import { getAnswerKural, getExplanations } from "../service/FindExplanationQuiz"
 import FindExplanationQuiz from "./FindExplanationQuiz"
 
 const CommonFindExplanationQuiz = () => {
@@ -22,11 +22,11 @@ const CommonFindExplanationQuiz = () => {
     if (!quiz) {
       log(`filters: ${JSON.stringify(filters)}`)
       const { paals, adhikarams, explanationAuthor } = filters
-      const quizGenerator = new FindExplanationQuizGenerator()
-      const { kural, kuralNo } = quizGenerator.getKural(paals, adhikarams.map(adhikaram => adhikaram.name), explanationAuthor)
-      log(`random kural: ${kuralNo} - ${kural}`)
-      const explanations = quizGenerator.getExplanations()
+      const answerKural = getAnswerKural(paals, adhikarams.map(adhikaram => adhikaram.name), explanationAuthor)
+      log(`random kural: ${answerKural}`)
+      const explanations = getExplanations(answerKural, explanationAuthor)
       log(`random explanations: ${JSON.stringify(explanations)}`)
+      const { kuralNo, kural } = answerKural
       const quiz = { kuralNo, kural, explanations }
       log(`quiz: ${JSON.stringify(quiz)}`)
       setQuiz(quiz)
