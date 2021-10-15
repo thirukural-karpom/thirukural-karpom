@@ -3,9 +3,9 @@ import { useParams } from "react-router"
 import { useTitle } from "react-use"
 import { APP_NAME, CLASS_SUFFIX, FIND_KURAL } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
-import samacheerKurals from "../data/samacheer-kurals.json"
 import { log } from "../helpers"
 import FindKuralQuizGenerator from "../service/FindKuralQuizGenerator"
+import { getAllKuralNumbers } from "../service/Samacheer"
 import FindKuralQuiz from "./FindKuralQuiz"
 
 const SamacheerFindKuralQuiz = () => {
@@ -20,7 +20,7 @@ const SamacheerFindKuralQuiz = () => {
   useEffect(() => {
     log(">>>>> side-effect - quiz")
     if (!quiz) {
-      const kuralNumbers = samacheerKurals[classNo]
+      const kuralNumbers = getAllKuralNumbers(classNo)
       const { explanationAuthor } = filters
       const quizGenerator = new FindKuralQuizGenerator()
       const explanation = quizGenerator.getExplanationByKuralNumbers(kuralNumbers, explanationAuthor)

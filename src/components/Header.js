@@ -4,12 +4,12 @@ import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
 import { APP_NAME, CLASS_SUFFIX, FIND_EXPLANATION, FIND_KURAL, GENERAL } from "../constants"
-import { samacheerClassNumbers } from "../helpers"
+import { getClassNumbers } from "../service/Samacheer"
 
 const Header = () => {
 
   const renderSamacheerClasses = (route) => (
-    samacheerClassNumbers()
+    getClassNumbers()
       .map(classNo =>
         <NavDropdown.Item
           key={classNo}
