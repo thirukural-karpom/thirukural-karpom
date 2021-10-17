@@ -17,7 +17,7 @@ const About = () => {
           </p>
 
           <p>
-            இந்த வலைத்தளத்தில் உள்ள குறைகள் அல்லது புதிய அம்சங்கள் பற்றிய ஆலோசனைகளை <a rel="noreferrer" target="_blank" href="https://github.com/thirukural-karpom/thirukural-karpom/issues/new">இங்கே செய்யலாம்</a>.
+            இந்த வலைத்தளத்தில் உள்ள குறைகள் அல்லது புதிய அம்சங்கள் பற்றிய ஆலோசனைகளை <a rel="noreferrer" target="_blank" href="https://github.com/thirukural-karpom/thirukural-karpom/issues">இங்கே செய்யலாம்</a>.
           </p>
 
           <p>
