@@ -70,7 +70,7 @@ const FindExplanationQuiz = ({ heading, quiz, filterProps, onFilterChange, onNex
   )
 
   return (
-    <Container>
+    <>
       <Row className="my-4">
         <Col>
           <h2>{heading}</h2>
@@ -109,11 +109,7 @@ const FindExplanationQuiz = ({ heading, quiz, filterProps, onFilterChange, onNex
           </Card>
         </Col>
       </Row>
-
-      <Row className="mb-2">
-        <Col>&nbsp;</Col>
-      </Row>
-    </Container>
+    </>
   )
 }
 

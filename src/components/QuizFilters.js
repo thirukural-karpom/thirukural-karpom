@@ -1,28 +1,37 @@
 import { useEffect, useState } from "react"
 import { Accordion, Button, Col, Form, Row } from "react-bootstrap"
 import { Typeahead } from "react-bootstrap-typeahead"
-import { ADHIKARAM, CLEAR, EXPLANATION, FILTERS, PAAL, SUBMIT, TERM } from "../constants"
+import { ADHIKARAM, CLEAR, EXPLANATION, FILTERS, PAAL, QUIZ_ORDERS, RANDOM_QUIZ_ORDER, SUBMIT, TERM } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import paals from "../data/paals.json"
 import { log } from "../helpers"
 import { getAdhikarams, getAllAdhikarams } from "../service/Thirukural"
 
-const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = true, hasTermSelector = false }) => {
+const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = true, hasTermSelector = false, hasQuizOrderSelector = false }) => {
   const [selectedPaals, setSelectedPaals] = useState([])
   const [selectedAdhikarams, setSelectedAdhikarams] = useState([])
   const [selectedTerms, setSelectedTerms] = useState([])
   const defaultExplanationAuthor = explanationAuthors[0]
   const [selectedExplanationAuthor, setSelectedExplanationAuthor] = useState([defaultExplanationAuthor])
   const [adhikarams, setAdhikarams] = useState(null)
+  const [selectedQuizOrder, setSelectedQuizOrder] = useState(null)
 
   useEffect(() => {
-    log(">>>>> side-effect - quiz filters")
+    log(">>>>> side-effect - quiz filters: adhikarams")
     if (!adhikarams) {
       const allAdhikarams = getAllAdhikarams()
       setAdhikarams(allAdhikarams)
     }
-    log("<<<<< side-effect - quiz filters")
+    log("<<<<< side-effect - quiz filters: adhikarams")
   }, [adhikarams])
+
+  useEffect(() => {
+    log(">>>>> side-effect - quiz filters: selectedQuizOrder")
+    if (!selectedQuizOrder) {
+      setSelectedQuizOrder(RANDOM_QUIZ_ORDER)
+    }
+    log("<<<<< side-effect - quiz filters: selectedQuizOrder")
+  }, [selectedQuizOrder])
 
   const handleOnSubmit = (e) => {
     log("handle filter form submit")
@@ -30,7 +39,8 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
       paals: selectedPaals,
       adhikarams: selectedAdhikarams,
       terms: selectedTerms,
-      explanationAuthor: selectedExplanationAuthor[0]
+      explanationAuthor: selectedExplanationAuthor[0],
+      quizOrder: selectedQuizOrder
     })
     e.preventDefault()
   }
@@ -42,6 +52,7 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
     setSelectedTerms([])
     setSelectedExplanationAuthor([defaultExplanationAuthor])
     setAdhikarams(null)
+    setSelectedQuizOrder(null)
   }
 
   const handlePaalChange = (paals) => {
@@ -89,6 +100,27 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
                         onChange={setSelectedAdhikarams}
                         multiple
                       />
+                    </Form.Group>
+                    : ""
+                }
+                {
+                  hasQuizOrderSelector ?
+                    <Form.Group>
+                      <Form.Label>Order</Form.Label>
+                      {
+                        Object.entries(QUIZ_ORDERS).map(([key, value], idx) => (
+                          <Form.Check
+                            key={idx}
+                            id={`${key}-quiz-order`}
+                            type="radio"
+                            label={value}
+                            name="quiz-order"
+                            value={key}
+                            onChange={(e) => setSelectedQuizOrder(e.target.value)}
+                            checked={selectedQuizOrder === key}
+                          />
+                        ))
+                      }
                     </Form.Group>
                     : ""
                 }
