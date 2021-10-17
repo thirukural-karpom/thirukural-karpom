@@ -92,7 +92,11 @@ const FindExplanationQuiz = ({ heading, quiz, filterProps, onFilterChange, onNex
                 {quiz !== null ? renderQuiz() : "Loading quiz..."}
 
                 <Form.Group className="text-center mt-4">
-                  <Button type="submit" className="mx-2">
+                  <Button
+                    type="submit"
+                    className="mx-2"
+                    disabled={!selectedExplanation}
+                  >
                     {SUBMIT}
                   </Button>
                   <Button

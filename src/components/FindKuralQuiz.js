@@ -92,7 +92,11 @@ const FindKuralQuiz = ({ heading, quiz, filterProps, onFilterChange, onNextQuiz 
                 {quiz !== null ? renderQuiz() : "Loading quiz..."}
 
                 <Form.Group className="text-center mt-4">
-                  <Button type="submit" className="mx-2">
+                  <Button
+                    type="submit"
+                    className="mx-2"
+                    disabled={!selectedKural}
+                  >
                     {SUBMIT}
                   </Button>
                   <Button
