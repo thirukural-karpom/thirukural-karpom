@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Accordion, Button, Col, Form, Row } from "react-bootstrap"
 import { Typeahead } from "react-bootstrap-typeahead"
-import { ADHIKARAM, CLEAR, EXPLANATION, FILTERS, PAAL, QUIZ_ORDERS, RANDOM_QUIZ_ORDER, SEQUENTIAL_QUIZ_ORDER, SUBMIT, TERM } from "../constants"
+import { ADHIKARAM, CLEAR, EXPLANATION, FILTERS, PAAL, QUIZ_ORDER, QUIZ_ORDERS, SEQUENTIAL_QUIZ_ORDER, SUBMIT, TERM } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import paals from "../data/paals.json"
 import { log } from "../helpers"
@@ -106,7 +106,7 @@ const QuizFilters = ({ onApply, hasAdhikaramSelector = true, hasPaalSelector = t
                 {
                   hasQuizOrderSelector ?
                     <Form.Group>
-                      <Form.Label>Order</Form.Label>
+                      <Form.Label>{QUIZ_ORDER}</Form.Label>
                       {
                         Object.entries(QUIZ_ORDERS).map(([key, value], idx) => (
                           <Form.Check

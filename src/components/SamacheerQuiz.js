@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Button, Col, Container, Modal, Row } from "react-bootstrap"
 import { useParams } from "react-router"
 import { useTitle } from "react-use"
-import { APP_NAME, CLASS_SUFFIX, CLOSE, FIND_EXPLANATION, FIND_EXPLANATION_QUIZ_TYPE, FIND_KURAL, FIND_KURAL_QUIZ_TYPE, SEQUENTIAL_QUIZ_ORDER, SUMMARY_TEXT, SUMMARY_TITLE } from "../constants"
+import { APP_NAME, CLASS_SUFFIX, SUMMARY_CLOSE, FIND_EXPLANATION, FIND_EXPLANATION_QUIZ_TYPE, FIND_KURAL, FIND_KURAL_QUIZ_TYPE, SEQUENTIAL_QUIZ_ORDER, SUMMARY_TEXT, SUMMARY_TITLE } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
 import { log } from "../helpers"
 import { getExplanations } from "../service/FindExplanationQuiz"
@@ -112,7 +112,7 @@ const SamacheerQuiz = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleSummaryClose}>
-            {CLOSE}
+            {SUMMARY_CLOSE}
           </Button>
         </Modal.Footer>
       </Modal>
