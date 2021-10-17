@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Container, Row, Col } from "react-bootstrap"
 import { useTitle } from "react-use"
 import { APP_NAME, FIND_KURAL } from "../constants"
 import explanationAuthors from "../data/explanation-authors.json"
@@ -44,12 +45,17 @@ const CommonFindKuralQuiz = () => {
   }
 
   return (
-    <FindKuralQuiz
-      heading={FIND_KURAL}
-      quiz={quiz}
-      onFilterChange={handleFilterChange}
-      onNextQuiz={handleNextQuiz}
-    />
+    <Container>
+      <FindKuralQuiz
+        heading={FIND_KURAL}
+        quiz={quiz}
+        onFilterChange={handleFilterChange}
+        onNextQuiz={handleNextQuiz}
+      />
+      <Row className="mb-2">
+        <Col>&nbsp;</Col>
+      </Row>
+    </Container>
   )
 }
 

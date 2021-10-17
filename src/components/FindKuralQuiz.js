@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
+import { Alert, Badge, Button, Card, Col, Form, Row } from "react-bootstrap"
 import { CORRECT_KURAL_MESSAGE, EXPLANATION, NEXT, SUBMIT, WRONG_KURAL_MESSAGE } from "../constants"
 import { log } from "../helpers"
 import QuizFilters from "./QuizFilters"
@@ -70,7 +70,7 @@ const FindKuralQuiz = ({ heading, quiz, filterProps, onFilterChange, onNextQuiz 
   )
 
   return (
-    <Container>
+    <>
       <Row className="my-4">
         <Col>
           <h2>{heading}</h2>
@@ -109,11 +109,7 @@ const FindKuralQuiz = ({ heading, quiz, filterProps, onFilterChange, onNextQuiz 
           </Card>
         </Col>
       </Row>
-
-      <Row className="mb-2">
-        <Col>&nbsp;</Col>
-      </Row>
-    </Container>
+    </>
   )
 }
 
