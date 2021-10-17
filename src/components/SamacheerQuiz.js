@@ -23,11 +23,11 @@ const SamacheerQuiz = () => {
   const samacheerClass = `${classNo}-${CLASS_SUFFIX}`
   const quizTypeMapping = {
     [FIND_EXPLANATION_QUIZ_TYPE]: {
-      title: `${FIND_EXPLANATION} | ${APP_NAME}`,
+      title: `${samacheerClass} | ${FIND_EXPLANATION} | ${APP_NAME}`,
       heading: `${FIND_EXPLANATION} - ${samacheerClass}`
     },
     [FIND_KURAL_QUIZ_TYPE]: {
-      title: `${FIND_KURAL} | ${APP_NAME}`,
+      title: `${samacheerClass}  | ${FIND_KURAL} | ${APP_NAME}`,
       heading: `${FIND_KURAL} - ${samacheerClass}`
     }
   }
