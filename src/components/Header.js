@@ -37,14 +37,14 @@ const Header = () => {
               <NavDropdown title={FIND_EXPLANATION}>
                 <NavDropdown.Item href="/quiz/find-explanation">{GENERAL}</NavDropdown.Item>
                 <NavDropdown.Divider />
-                {renderSamacheerClasses("/quiz/samacheer-find-explanation")}
+                {renderSamacheerClasses("/quiz/samacheer/find-explanation")}
               </NavDropdown>
             </Nav>
             <Nav className="me-auto">
               <NavDropdown title={FIND_KURAL}>
                 <NavDropdown.Item href="/quiz/find-kural">{GENERAL}</NavDropdown.Item>
                 <NavDropdown.Divider />
-                {renderSamacheerClasses("/quiz/samacheer-find-kural")}
+                {renderSamacheerClasses("/quiz/samacheer/find-kural")}
               </NavDropdown>
             </Nav>
             <Nav>

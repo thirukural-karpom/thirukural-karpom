@@ -29,4 +29,6 @@ export const APP_NAME = "திருக்குறள் கற்போம்
   QUIZ_ORDERS = { [RANDOM_QUIZ_ORDER]: "Random", [SEQUENTIAL_QUIZ_ORDER]: "Sequential" },
   CLOSE = "close",
   SUMMARY_TITLE = "Modal title",
-  SUMMARY_TEXT = "I will not close if you click outside me. Don't even try to press escape key."
+  SUMMARY_TEXT = "I will not close if you click outside me. Don't even try to press escape key.",
+  FIND_EXPLANATION_QUIZ_TYPE = "find-explanation",
+  FIND_KURAL_QUIZ_TYPE = "find-kural"
