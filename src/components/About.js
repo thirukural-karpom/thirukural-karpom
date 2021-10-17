@@ -13,11 +13,11 @@ const About = () => {
           </p>
 
           <p>
-            இந்த வலைத்தளத்தின் code Open Source ஆக வைக்கப்பட்டுள்ளது. எனவே இந்த வலைத்தளத்தின் மேம்பாட்டிற்கு நீங்கள் உதவ விரும்பினீர்கள் என்றால் <a rel="noreferrer" target="_blank" href="https://github.com/thirukural-karpom/thirukural-karpom">இந்த வழிமுறைகளை பின்பற்றவும்</a>.
+            இந்த வலைத்தளத்தின் code Open Source ஆக வைக்கப்பட்டுள்ளது. எனவே இந்த வலைத்தளத்தின் மேம்பாட்டிற்கு நீங்கள் உதவ விரும்பினீர்கள் என்றால் <a rel="noreferrer" target="_blank" href="https://github.com/thirukural-karpom/thirukural-karpom#contributing">இந்த வழிமுறைகளை பின்பற்றவும்</a>.
           </p>
 
           <p>
-            இந்த வலைத்தளத்தில் உள்ள குறைகள் அல்லது புதிய அம்சங்கள் பற்றிய ஆலோசனைகளை <a rel="noreferrer" target="_blank" href="https://github.com/thirukural-karpom/thirukural-karpom">இங்கே செய்யலாம்</a>.
+            இந்த வலைத்தளத்தில் உள்ள குறைகள் அல்லது புதிய அம்சங்கள் பற்றிய ஆலோசனைகளை <a rel="noreferrer" target="_blank" href="https://github.com/thirukural-karpom/thirukural-karpom/issues/new">இங்கே செய்யலாம்</a>.
           </p>
 
           <p>
