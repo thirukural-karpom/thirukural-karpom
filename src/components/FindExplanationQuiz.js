@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Alert, Badge, Button, Card, Col, Container, Form, Row } from "react-bootstrap"
+import { Alert, Badge, Button, Card, Col, Form, Row } from "react-bootstrap"
 import { CORRECT_EXPLANATION_MESSAGE, KURAL, NEXT, SUBMIT, WRONG_EXPLANATION_MESSAGE } from "../constants"
 import { log } from "../helpers"
 import QuizFilters from "./QuizFilters"

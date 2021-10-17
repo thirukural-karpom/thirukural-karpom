@@ -38,7 +38,7 @@ const getRandomExplanations = (paal, explanationAuthor, skipKuralNo, n = 3) => {
   }, [])
 }
 
-const getKural = (paals, adhikarams) => {
+const getRandomKural = (paals, adhikarams) => {
   let filteredThirukurals = thirukurals
   if (paals.length) {
     filteredThirukurals = filteredThirukurals.filter((thirukural) => paals.includes(thirukural.paal))
@@ -49,22 +49,26 @@ const getKural = (paals, adhikarams) => {
   return getRandomKuralFrom(filteredThirukurals)
 }
 
-const getKuralByKuralNumbers = (kuralNumbers) => {
-  const randomIdx = randomInteger(0, kuralNumbers.length - 1)
-  const randomKuralNo = kuralNumbers[randomIdx]
+const getKuralByKuralNumber = (kuralNo) => {
   let kural = {}
   let paal = ""
   thirukurals.some(item => {
     kural = item.kurals.find(kural =>
-      kural.kuralNo === randomKuralNo
+      kural.kuralNo === kuralNo
     )
     if (kural) {
       paal = item.paal
       return true
     }
     return false
-  });
+  })
   return { ...kural, paal }
+}
+
+const getKuralByKuralNumbers = (kuralNumbers) => {
+  const randomIdx = randomInteger(0, kuralNumbers.length - 1)
+  const randomKuralNo = kuralNumbers[randomIdx]
+  return getKuralByKuralNumber(randomKuralNo)
 }
 
 const getExplanationByAuthor = (explanations, explanationAuthor) => (
@@ -74,7 +78,7 @@ const getExplanationByAuthor = (explanations, explanationAuthor) => (
 )
 
 const getAnswerKural = (paals, adhikarams, explanationAuthor) => {
-  const { kuralNo, kural, paal, explanations } = getKural(paals, adhikarams)
+  const { kuralNo, kural, paal, explanations } = getRandomKural(paals, adhikarams)
   const explanation = getExplanationByAuthor(explanations, explanationAuthor)
   return { kuralNo, kural, paal, explanation }
 }
@@ -85,4 +89,10 @@ const getAnswerKuralByKuralNumbers = (kuralNumbers, explanationAuthor) => {
   return { kuralNo, kural, paal, explanation }
 }
 
-export { getRandomKurals, getRandomExplanations, getAnswerKural, getAnswerKuralByKuralNumbers }
+const getAnswerKuralByKuralNumber = (kuralNumber, explanationAuthor) => {
+  const { kuralNo, kural, paal, explanations } = getKuralByKuralNumber(kuralNumber)
+  const explanation = getExplanationByAuthor(explanations, explanationAuthor)
+  return { kuralNo, kural, paal, explanation }
+}
+
+export { getRandomKurals, getRandomExplanations, getAnswerKural, getAnswerKuralByKuralNumbers, getAnswerKuralByKuralNumber }
