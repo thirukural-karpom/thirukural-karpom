@@ -32,4 +32,5 @@ export const APP_NAME = "திருக்குறள் கற்போம்
   SUMMARY_TITLE = "முடிவு",
   SUMMARY_TEXT = "சபாஷ்! அனைத்து கேள்விகளையும் முடித்துவிடீர்கள்.",
   FIND_EXPLANATION_QUIZ_TYPE = "find-explanation",
-  FIND_KURAL_QUIZ_TYPE = "find-kural"
+  FIND_KURAL_QUIZ_TYPE = "find-kural",
+  ABOUT_WEBSITE = "வலைத்தளம் பற்றி"
