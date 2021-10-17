@@ -15,7 +15,11 @@ import FindKuralQuiz from "./FindKuralQuiz"
 const SamacheerQuiz = () => {
   const [quiz, setQuiz] = useState(null)
   const defaultExplanationAuthor = explanationAuthors[0]
-  const [filters, setFilters] = useState({ terms: [], explanationAuthor: defaultExplanationAuthor })
+  const [filters, setFilters] = useState({
+    terms: [],
+    explanationAuthor: defaultExplanationAuthor,
+    quizOrder: SEQUENTIAL_QUIZ_ORDER
+  })
   const [usedKuralNumbers, setUsedKuralNumbers] = useState([])
   const [showSummary, setShowSummary] = useState(false);
 
